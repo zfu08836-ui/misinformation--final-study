@@ -728,7 +728,7 @@
           const assignedAgent = AGENTS[selectedAgentId];
 
           // 请将这里替换为你获取到的 Google Apps Script 部署链接
-          const GOOGLE_SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzCAgSN6jSIOJ0LePg_gx8CYEa6edp8C2Z4EFzcOn85IiJwNnTSOhXBvIVIysoG11H-/exec";
+          const GOOGLE_SHEETS_WEBHOOK_URL = "https://sheetdb.io/api/v1/https://sheetdb.io/api/v1/0eb2qip58o4ew";
 
           useEffect(() => {
             const saved = answers[currentPostIdx];
@@ -972,10 +972,9 @@
             }
           };
 
-          const handleSubmitSurvey = async () => {
+const handleSubmitSurvey = async () => {
             setIsSubmitting(true);
 
-            // Finalize data preparation
             const finalData = history.map(item => {
               if (item.sessionId === currentSessionId) {
                 return {
@@ -995,15 +994,16 @@
             setHistory(finalData);
             const currentSessionData = finalData.filter(item => item.sessionId === currentSessionId);
 
-            // Send data to Google Sheets
             if (GOOGLE_SHEETS_WEBHOOK_URL && GOOGLE_SHEETS_WEBHOOK_URL !== "") {
               try {
                 await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
                   method: 'POST',
                   headers: {
-                    'Content-Type': 'text/plain;charset=utf-8',
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
                   },
-                  body: JSON.stringify(currentSessionData)
+                  // SheetDB 规范：批量写入需包裹在 data 字段中
+                  body: JSON.stringify({ data: currentSessionData })
                 });
                 console.log("Data successfully synced to remote server.");
               } catch (error) {
