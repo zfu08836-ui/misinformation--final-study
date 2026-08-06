@@ -33,11 +33,8 @@
     <div id="root"></div>
 
     <script type="text/babel">
-        const { useState, useEffect, useRef } = React;
+        const { useState, useEffect } = React;
 
-        const IconSettings = ({ className = "w-4 h-4" }) => (
-          <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
-        );
         const IconDownload = ({ className = "w-4 h-4" }) => (
           <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         );
@@ -55,12 +52,6 @@
         );
         const IconX = ({ className = "w-4 h-4" }) => (
           <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        );
-        const IconTrash = ({ className = "w-3.5 h-3.5" }) => (
-          <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-        );
-        const IconSliders = ({ className = "w-4 h-4" }) => (
-          <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
         );
         const IconRotateCcw = ({ className = "w-3.5 h-3.5" }) => (
           <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><polyline points="3 3 3 8 8 8"/></svg>
@@ -81,10 +72,33 @@
           <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>
         );
 
+        const SUMMARY_TEXTS = {
+          factai: {
+            en: "To summarize, this fact-checker is a general-purpose AI assistant without specialized knowledge in any particular field.",
+            zh: "概括而言，这位事实核查者是一位不具备特定领域专门知识的通用型 AI 助理。"
+          },
+          drvera: {
+            en: "To summarize, this fact-checker is an AI health expert specializing in health and medicine.",
+            zh: "概括而言，这位事实核查者是一位专注于健康与医学领域的 AI 健康专家。"
+          },
+          axiom: {
+            en: "To summarize, this fact-checker is an AI science expert specializing in science and technology.",
+            zh: "概括而言，这位事实核查者是一位专注于科学与技术领域的 AI 科学专家。"
+          }
+        };
+
         const TRANSLATIONS = {
           en: {
+            // Login Screen
+            loginWelcome: "Welcome!",
+            loginPromptZh: "请输入你的实验ID",
+            loginPromptEn: "Please input your participant ID (A/B/C+number)",
+            loginFormatZh: "实验ID由字母和数字组成",
+            loginFormatEn: "（例如A01，B25或C33）",
+            loginButton: "Login",
+            loginError: "Invalid ID format. Must be A, B, or C followed by a number (e.g., A01).",
+
             instructions: "Instructions",
-            console: "Console",
             restart: "Restart",
             postIndicator: "Post {current} of {total}",
             taskTitle: "Task Instructions",
@@ -92,15 +106,10 @@
             continueToOnboarding: "Continue to Onboarding",
             meetAssistant: "Meet the Fact-Checking Assistant",
             
-            memoryCheckTitle: "Attention Check",
-            memoryCheckQ1: "Before beginning the main task, do you remember the identity of the AI fact-checker introduced to you?",
-            memoryCheckQ1_Yes: "Yes, I remember",
-            memoryCheckQ1_No: "No, I do not remember",
-            memoryCheckQ1_Review: "Review AI Introduction",
-            memoryCheckQ2: "Based on the introduction, which type of AI fact-checker were you assigned to?",
-            memoryCheckQ2_Opt1: "General-purpose AI Fact-Checker",
-            memoryCheckQ2_Opt2: "Health Expert AI Fact-Checker",
-            memoryCheckQ2_Opt3: "Science Expert AI Fact-Checker",
+            // Memory / Attention Check
+            understandPrompt: "Do you understand?",
+            btnYes: "Yes",
+            btnNo: "No",
 
             startTask: "Start Task",
             backToInstructions: "Back to Instructions",
@@ -113,19 +122,12 @@
             assessRequest: "Please assess the credibility of this claim.",
             sendRequest: "Send Request",
             verifyingText: "Verifying post content parameters...",
-            q3Text: "How much do you trust this fact-checking assistant's claim?",
-            q3Anchors: ["1 = Do not trust at all", "7 = Trust extremely"],
+            q3Text: "How believable do you find the fact-checking assistant's claim?",
+            q3Anchors: ["1 = Not believable at all", "7 = Extremely believable"],
             q4Text: "After seeing the response, how credible do you now find this post?",
             q4Anchors: ["1 = Not at all credible", "7 = Extremely credible"],
             q5Text: "How confident are you in your judgment?",
             q5Anchors: ["1 = Not at all confident", "7 = Extremely confident"],
-            
-            q7Text: "Based on the fact-checking response, how would you rate this assistant's expertise in health & medical topics?",
-            q7Anchors: ["1 = Not at all expert", "7 = Extremely expert"],
-            q8Text: "Based on the fact-checking response you just read, how would you rate this assistant's expertise in science topics?",
-            q8Anchors: ["1 = Not at all expert", "7 = Extremely expert"],
-            q9Text: "How competent did this assistant seem at identifying misinformation?",
-            q9Anchors: ["1 = Not at all competent", "7 = Very competent"],
 
             previousPost: "Previous Post",
             back: "Back",
@@ -163,8 +165,16 @@
             modalGotIt: "Got it"
           },
           zh: {
+            // Login Screen
+            loginWelcome: "Welcome!",
+            loginPromptZh: "请输入你的实验ID",
+            loginPromptEn: "Please input your participant ID (A/B/C+number)",
+            loginFormatZh: "实验ID由字母和数字组成",
+            loginFormatEn: "（例如A01，B25或C33）",
+            loginButton: "登陆",
+            loginError: "ID格式无效。必须是字母 A/B/C 加上数字（例如 A01）。",
+
             instructions: "实验说明",
-            console: "控制台",
             restart: "重新开始",
             postIndicator: "推文 {current} / {total}",
             taskTitle: "任务说明",
@@ -172,15 +182,10 @@
             continueToOnboarding: "继续前往新手引导",
             meetAssistant: "认识事实核查助理",
 
-            memoryCheckTitle: "注意力与记忆检查",
-            memoryCheckQ1: "在开始正式任务前，请问您是否还记得刚才介绍的 AI 核查员身份？",
-            memoryCheckQ1_Yes: "是，我记得",
-            memoryCheckQ1_No: "否，我不记得",
-            memoryCheckQ1_Review: "返回查看 AI 身份说明",
-            memoryCheckQ2: "根据刚才的介绍，您被分配到的 AI 核查员是什么身份？",
-            memoryCheckQ2_Opt1: "通用型 AI",
-            memoryCheckQ2_Opt2: "健康专家 AI",
-            memoryCheckQ2_Opt3: "科学专家 AI",
+            // Memory / Attention Check
+            understandPrompt: "您明白了吗？",
+            btnYes: "是",
+            btnNo: "否",
 
             startTask: "开始任务",
             backToInstructions: "返回任务说明",
@@ -193,19 +198,12 @@
             assessRequest: "请评估该说法的可信度。",
             sendRequest: "发送请求",
             verifyingText: "正在验证帖子内容参数...",
-            q3Text: "您在多大程度上信任该事实核查助理的评定？",
-            q3Anchors: ["1 = 完全不信任", "7 = 极度信任"],
+            q3Text: "您认为该事实核查助手的说法有多可信？",
+            q3Anchors: ["1 = 完全不可信", "7 = 极度可信"],
             q4Text: "看到核查回复后，您现在认为该帖子的可信度如何？",
             q4Anchors: ["1 = 完全不可信", "7 = 极度可信"],
             q5Text: "您对自己的判断有多大信心？",
             q5Anchors: ["1 = 完全没信心", "7 = 极有信心"],
-            
-            q7Text: "根据刚才的核查回复，您如何评价这位 AI 核查员在健康与医学领域的专业程度？",
-            q7Anchors: ["1 = 非常不专业", "7 = 非常专业"],
-            q8Text: "根据刚才的核查回复，您如何评价这位 AI 核查员在科学领域的专业程度？",
-            q8Anchors: ["1 = 非常不专业", "7 = 非常专业"],
-            q9Text: "该助手在识别错误信息方面显得有多专业？",
-            q9Anchors: ["1 = 完全不胜任", "7 = 非常胜任"],
 
             previousPost: "上一篇",
             back: "返回",
@@ -220,9 +218,9 @@
             sectionCompetence: "【感知胜任度 Perceived Competence】",
             sectionEmotional: "【情感感知 Emotional Perception】",
             sectionIntent: "【持续使用意愿 Continued Use Intention】",
-            postSurveyQ1: "1. 您如何评价该助理在健康话题上的专业知识？",
+            postSurveyQ1: "1. 您如何评价该助理在健康话题上的专业程度？",
             postSurveyQ1Anchors: ["不是专家", "专家"],
-            postSurveyQ2: "2. 您如何评价该助理在技术话题上的专业知识？",
+            postSurveyQ2: "2. 您如何评价该助理在科技话题上的专业程度？",
             postSurveyQ2Anchors: ["不是专家", "专家"],
             postSurveyQ3: "3. 这位助理所声称的专业领域在多大程度上影响了您对其回复的评估？",
             postSurveyQ3Anchors: ["完全没有影响", "影响非常大"],
@@ -278,8 +276,8 @@
             badge_zh: "科学专家",
             gradient: "from-[#7856FF] to-[#A389FF]",
             avatarLetter: "A",
-            intro_en: "Axiom, a Science AI Specialist. Trained on computer science, digital media research, and engineering protocols. It acts as an analytical technical specialist. It provides precise breakdowns on digital systems, consumer technology, and online tech myths from first principles.",
-            intro_zh: "Axiom, 科学 AI 专家。基于计算机科学、数字媒体研究和工程技术协议训练。它作为一个分析型技术专家，遵循第一性原理对数字系统、消费级电子技术以及各种网络科技流言、科学迷思进行严密的拆解剖析。"
+            intro_en: "Axiom, a Science AI Specialist. Trained on computer science, digital media research, and engineering protocols. It acts as an science expert. It provides precise breakdowns on digital systems, consumer technology, and online tech myths from first principles.",
+            intro_zh: "Axiom, 科学AI专家。基于计算机科学、数字媒体研究和工程技术协议训练。它作为一个分析型科学专家，遵循第一性原理对数字系统、消费级电子技术以及各种网络科技流言、科学迷思进行严密的拆解剖析。"
           }
         };
 
@@ -305,8 +303,8 @@
           {
             id: "P02", category_en: "Health", category_zh: "健康",
             author: "@MindBodyDaily", avatarColor: "bg-teal-100 text-teal-700",
-            content_en: "Probiotics may help people with bipolar disorder",
-            content_zh: "益生菌可帮助双相情感障碍患者",
+            content_en: "Probiotics may alleviate symptoms of bipolar disorder",
+            content_zh: "益生菌可能缓解双相情感障碍症状",
             responses: {
               en: {
                 factai: "This claim is not accurate. Probiotics may help reduce gut inflammation linked to bipolar disorder. Probiotics have not been proven to treat bipolar disorder and cannot replace standard treatments.",
@@ -467,8 +465,8 @@
           {
             id: "P11", category_en: "Science", category_zh: "科学",
             author: "@OceanDefense", avatarColor: "bg-cyan-100 text-cyan-700",
-            content_en: "Lower seawater pH benefits marine species",
-            content_zh: "降低海水pH值有益于海洋物种",
+            content_en: "Lower seawater pH benefits the survival of marine organisms",
+            content_zh: "海水pH值下降有利于海洋生物生存",
             responses: {
               en: {
                 factai: "This claim is not accurate. Lower pH reduces the carbonate ions available in seawater, which NOAA reports makes it harder for oysters, clams, corals and plankton to build and maintain their shells and skeletons.",
@@ -667,21 +665,17 @@
 
         function App() {
           const [lang, setLang] = useState('en'); 
-          const [activeStep, setActiveStep] = useState('welcome'); 
+          const [activeStep, setActiveStep] = useState('login'); 
+          const [participantId, setParticipantId] = useState('');
           const [currentPostIdx, setCurrentPostIdx] = useState(0);
           const [shuffledPosts, setShuffledPosts] = useState(POSTS);
           const [selectedAgentId, setSelectedAgentId] = useState('factai'); 
           const [currentSessionId, setCurrentSessionId] = useState('');
           const [isSubmitting, setIsSubmitting] = useState(false);
 
-          // PULL PROLIFIC ID FROM URL
-          const urlParams = new URLSearchParams(window.location.search);
-          const prolificPid = urlParams.get('PROLIFIC_PID') || 'anonymous';
+          const [understoodSummary, setUnderstoodSummary] = useState(null);
 
-          const [memoryQ1, setMemoryQ1] = useState(null);
-          const [memoryQ2, setMemoryQ2] = useState(null);
-
-          // Post-Survey states (7 questions)
+          // Post-Survey states
           const [surveyQ1, setSurveyQ1] = useState(null);
           const [surveyQ2, setSurveyQ2] = useState(null);
           const [surveyQ3, setSurveyQ3] = useState(null);
@@ -696,10 +690,7 @@
               initialConfidence: null,  
               agentTrust: null,         
               updatedCredibility: null, 
-              updatedConfidence: null,  
-              healthExpertise: null,
-              scienceExpertise: null,
-              competence: null,        
+              updatedConfidence: null,         
               stage: 0
             }))
           );
@@ -710,13 +701,9 @@
             initialConfidence: null,
             agentTrust: null,
             updatedCredibility: null,
-            updatedConfidence: null,
-            healthExpertise: null,
-            scienceExpertise: null,
-            competence: null
+            updatedConfidence: null
           });
 
-          const [showSettings, setShowSettings] = useState(false);
           const [showInstructionsModal, setShowInstructionsModal] = useState(false);
           const [chatInputValue, setChatInputValue] = useState('');
           const [analyzingProgress, setAnalyzingProgress] = useState(0);
@@ -727,8 +714,8 @@
           const activePost = shuffledPosts[currentPostIdx];
           const assignedAgent = AGENTS[selectedAgentId];
 
-          // 请将这里替换为你获取到的 Google Apps Script 部署链接
-          const GOOGLE_SHEETS_WEBHOOK_URL = "https://sheetdb.io/api/v1/https://sheetdb.io/api/v1/0eb2qip58o4ew";
+          // ⚠️ 这里替换为你生成的 SheetDB API 链接
+          const GOOGLE_SHEETS_WEBHOOK_URL = "https://sheetdb.io/api/v1/你的专属代码";
 
           useEffect(() => {
             const saved = answers[currentPostIdx];
@@ -738,10 +725,7 @@
                 initialConfidence: saved.initialConfidence,
                 agentTrust: saved.agentTrust,
                 updatedCredibility: saved.updatedCredibility,
-                updatedConfidence: saved.updatedConfidence,
-                healthExpertise: saved.healthExpertise,
-                scienceExpertise: saved.scienceExpertise,
-                competence: saved.competence
+                updatedConfidence: saved.updatedConfidence
               });
               setStage(saved.stage);
             }
@@ -787,13 +771,27 @@
             });
           };
 
+          const handleLogin = () => {
+            const id = participantId.trim().toUpperCase();
+            if (/^A\d+$/.test(id)) {
+              setSelectedAgentId('factai');
+            } else if (/^B\d+$/.test(id)) {
+              setSelectedAgentId('drvera');
+            } else if (/^C\d+$/.test(id)) {
+              setSelectedAgentId('axiom');
+            } else {
+              alert(t.loginError);
+              return;
+            }
+            setActiveStep('welcome');
+          };
+
           const handleStartExperiment = () => {
             setActiveStep('agent_intro');
           };
 
           const handleGoToMemoryCheck = () => {
-            setMemoryQ1(null);
-            setMemoryQ2(null);
+            setUnderstoodSummary(null);
             setActiveStep('agent_memory_check');
           };
 
@@ -818,9 +816,6 @@
                 agentTrust: null,
                 updatedCredibility: null,
                 updatedConfidence: null,
-                healthExpertise: null,
-                scienceExpertise: null,
-                competence: null,
                 stage: 0
               }))
             );
@@ -830,10 +825,7 @@
               initialConfidence: null,
               agentTrust: null,
               updatedCredibility: null,
-              updatedConfidence: null,
-              healthExpertise: null,
-              scienceExpertise: null,
-              competence: null
+              updatedConfidence: null
             });
           };
 
@@ -868,14 +860,6 @@
               const target = 5;
               setStage(target);
               saveCurrentPostState({}, target);
-            } else if (stage === 7) { 
-              const target = 6;
-              setStage(target);
-              saveCurrentPostState({}, target);
-            } else if (stage === 8) { 
-              const target = 7;
-              setStage(target);
-              saveCurrentPostState({}, target);
             }
           };
 
@@ -886,11 +870,6 @@
             if (stage === 4 && ratings.agentTrust === null) return;
             if (stage === 5 && ratings.updatedCredibility === null) return;
             if (stage === 6 && ratings.updatedConfidence === null) return;
-            if (stage === 7) {
-                if (activePost.category_en === 'Health' && ratings.healthExpertise === null) return;
-                if (activePost.category_en === 'Science' && ratings.scienceExpertise === null) return;
-            }
-            if (stage === 8 && ratings.competence === null) return;
 
             if (stage === 0) {
               const target = 1;
@@ -909,14 +888,6 @@
               setStage(target);
               saveCurrentPostState({}, target);
             } else if (stage === 6) {
-              const target = 7;
-              setStage(target);
-              saveCurrentPostState({}, target);
-            } else if (stage === 7) {
-              const target = 8;
-              setStage(target);
-              saveCurrentPostState({}, target);
-            } else if (stage === 8) {
               handleNextPost();
             }
           };
@@ -930,22 +901,18 @@
             );
             
             const logData = {
-              prolificPid: prolificPid,
+              prolificPid: participantId.trim().toUpperCase(),
               id: Date.now() + Math.random(),
               sessionId: currentSessionId,
               postId: activePost.id,
               postCategory: activePost.category_en,
               agentId: selectedAgentId,
-              memoryQ1: memoryQ1,
-              memoryQ2: memoryQ2,
+              understoodSummary: understoodSummary ? 'Yes' : 'No',
               initialCredibility: currentAnswer.initialCredibility,
               initialConfidence: currentAnswer.initialConfidence,
-              agentTrust: currentAnswer.agentTrust,
+              agentTrust: currentAnswer.agentTrust, // Note: This stores the "Believability" value
               updatedCredibility: currentAnswer.updatedCredibility,
               updatedConfidence: currentAnswer.updatedConfidence,
-              healthExpertise: currentAnswer.healthExpertise,
-              scienceExpertise: currentAnswer.scienceExpertise,
-              competence: currentAnswer.competence,
               surveyQ1: null,
               surveyQ2: null,
               surveyQ3: null,
@@ -972,7 +939,7 @@
             }
           };
 
-const handleSubmitSurvey = async () => {
+          const handleSubmitSurvey = async () => {
             setIsSubmitting(true);
 
             const finalData = history.map(item => {
@@ -1002,7 +969,6 @@ const handleSubmitSurvey = async () => {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                   },
-                  // SheetDB 规范：批量写入需包裹在 data 字段中
                   body: JSON.stringify({ data: currentSessionData })
                 });
                 console.log("Data successfully synced to remote server.");
@@ -1025,7 +991,8 @@ const handleSubmitSurvey = async () => {
             setSurveyQ5(null);
             setSurveyQ6(null);
             setSurveyQ7(null);
-            setActiveStep('welcome');
+            setParticipantId('');
+            setActiveStep('login');
           };
 
           const resetRatingsForPost = () => {
@@ -1034,10 +1001,7 @@ const handleSubmitSurvey = async () => {
               initialConfidence: null,
               agentTrust: null,
               updatedCredibility: null,
-              updatedConfidence: null,
-              healthExpertise: null,
-              scienceExpertise: null,
-              competence: null
+              updatedConfidence: null
             });
             setStage(0);
           };
@@ -1055,11 +1019,6 @@ const handleSubmitSurvey = async () => {
             if (stage === 4) return ratings.agentTrust !== null;
             if (stage === 5) return ratings.updatedCredibility !== null;
             if (stage === 6) return ratings.updatedConfidence !== null;
-            if (stage === 7) {
-                if (activePost.category_en === 'Health') return ratings.healthExpertise !== null;
-                if (activePost.category_en === 'Science') return ratings.scienceExpertise !== null;
-            }
-            if (stage === 8) return ratings.competence !== null;
             return false;
           };
 
@@ -1071,40 +1030,6 @@ const handleSubmitSurvey = async () => {
                      surveyQ5 !== null && 
                      surveyQ6 !== null && 
                      surveyQ7 !== null;
-          }
-
-          const totalEvaluated = history.length;
-          const avgPreCredibility = totalEvaluated > 0 
-            ? (history.reduce((sum, item) => sum + item.initialCredibility, 0) / totalEvaluated).toFixed(2) 
-            : 0;
-          const avgPostCredibility = totalEvaluated > 0 
-            ? (history.reduce((sum, item) => sum + item.updatedCredibility, 0) / totalEvaluated).toFixed(2) 
-            : 0;
-
-          const getAgentStats = (agentId) => {
-            const filtered = history.filter(item => item.agentId === agentId);
-            if (filtered.length === 0) return { trust: 0, drop: 0 };
-            const trust = (filtered.reduce((sum, item) => sum + item.agentTrust, 0) / filtered.length).toFixed(1);
-            const preCred = (filtered.reduce((sum, item) => sum + item.initialCredibility, 0) / filtered.length).toFixed(1);
-            const postCred = (filtered.reduce((sum, item) => sum + item.updatedCredibility, 0) / filtered.length).toFixed(1);
-            const drop = (preCred - postCred).toFixed(1);
-            return { trust, drop };
-          };
-
-          const downloadCSV = () => {
-            let csvContent = "Prolific PID,ID,Session ID,Post ID,Category,Agent,Memory Q1,Memory Q2,Initial Credibility (Q1),Initial Confidence (Q2),Agent Trust (Q3),Updated Credibility (Q4),Updated Confidence (Q5),Post Health Exp (Q6-H),Post Science Exp (Q6-S),Post Competence (Q7),Survey Q1 (Health Exp),Survey Q2 (Tech Exp),Survey Q3 (Exp Influence),Survey Q4 (Competence),Survey Q5 (Verify Other),Survey Q6 (Comfort),Survey Q7 (Future Use)\r\n";
-            history.forEach((row) => {
-              csvContent += `${row.prolificPid || ''},${row.id},${row.sessionId || ''},${row.postId},${row.postCategory},${row.agentId},${row.memoryQ1 || ''},${row.memoryQ2 || ''},${row.initialCredibility},${row.initialConfidence || ''},${row.agentTrust},${row.updatedCredibility},${row.updatedConfidence || ''},${row.healthExpertise || ''},${row.scienceExpertise || ''},${row.competence || ''},${row.surveyQ1 || ''},${row.surveyQ2 || ''},${row.surveyQ3 || ''},${row.surveyQ4 || ''},${row.surveyQ5 || ''},${row.surveyQ6 || ''},${row.surveyQ7 || ''}\r\n`;
-            });
-            
-            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-            const url = URL.createObjectURL(blob);
-            const link = document.createElement("a");
-            link.setAttribute("href", url);
-            link.setAttribute("download", `experiment_dataset_${Date.now()}.csv`);
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
           };
 
           return (
@@ -1131,15 +1056,6 @@ const handleSubmitSurvey = async () => {
                     <span>{lang === 'en' ? '中文' : 'English'}</span>
                   </button>
                 </div>
-                
-                <button
-                  onClick={() => setShowSettings(true)}
-                  className="p-2 text-[#536471] hover:text-[#0F1419] hover:bg-[#F7F9F9] rounded-full transition-colors cursor-pointer flex items-center gap-1.5 text-xs font-bold"
-                  title="Researcher Control Panel"
-                >
-                  <IconSliders className="w-4 h-4 text-[#536471]" />
-                  <span>{lang === 'en' ? 'Console' : '控制台'}</span>
-                </button>
               </header>
 
               <main className="flex-1 flex flex-col justify-center items-center p-4 md:p-8 max-w-4xl lg:max-w-5xl xl:max-w-6xl w-full mx-auto">
@@ -1159,6 +1075,33 @@ const handleSubmitSurvey = async () => {
                       <span className="text-xs font-bold text-[#1D9BF0] bg-[#1D9BF0]/10 py-1 px-3 rounded-full">
                         {t.postIndicator.replace('{current}', currentPostIdx + 1).replace('{total}', shuffledPosts.length)}
                       </span>
+                    </div>
+                  )}
+
+                  {activeStep === 'login' && (
+                    <div className="p-8 md:p-12 space-y-6 flex-1 flex flex-col justify-center animate-fade-in text-center">
+                      <h1 className="text-3xl font-black text-[#0F1419] tracking-tight">{t.loginWelcome}</h1>
+                      <div className="max-w-sm mx-auto space-y-4">
+                        <p className="text-[#536471] text-sm font-semibold mb-1">{t.loginPromptZh}</p>
+                        <p className="text-[#536471] text-sm font-semibold">{t.loginPromptEn}</p>
+                        <input
+                          type="text"
+                          className="w-full px-4 py-3 rounded-xl border border-[#EFF3F4] focus:outline-none focus:border-[#1D9BF0] text-center font-mono text-lg uppercase"
+                          value={participantId}
+                          onChange={e => setParticipantId(e.target.value)}
+                          placeholder="e.g. A01"
+                        />
+                        <p className="text-[#536471] text-xs mt-2 leading-relaxed">{t.loginFormatZh}<br/>{t.loginFormatEn}</p>
+                      </div>
+                      <div className="flex justify-center pt-2">
+                        <button
+                          onClick={handleLogin}
+                          disabled={!participantId.trim()}
+                          className="px-10 py-3 bg-[#1D9BF0] hover:bg-[#1A8CD8] disabled:opacity-50 text-white font-bold rounded-full shadow-sm transition-all"
+                        >
+                          {t.loginButton}
+                        </button>
+                      </div>
                     </div>
                   )}
 
@@ -1236,106 +1179,35 @@ const handleSubmitSurvey = async () => {
                   )}
 
                   {activeStep === 'agent_memory_check' && (
-                    <div className="p-6 md:p-8 space-y-8 flex-1 flex flex-col justify-center animate-fade-in">
-                      <div className="space-y-2 text-center max-w-xl mx-auto">
-                        <h2 className="text-2xl font-bold text-[#0F1419]">
-                          {t.memoryCheckTitle}
-                        </h2>
-                      </div>
-
-                      <div className="max-w-xl w-full mx-auto space-y-8">
-                        <div className="space-y-4 bg-[#F7F9F9] p-5 rounded-2xl border border-[#EFF3F4]">
-                          <p className="font-bold text-sm text-[#0F1419]">{t.memoryCheckQ1}</p>
-                          <div className="flex flex-col gap-3">
+                    <div className="p-6 md:p-8 space-y-8 flex-1 flex flex-col justify-center animate-fade-in text-center">
+                      <div className="max-w-xl mx-auto bg-[#F7F9F9] p-8 rounded-2xl border border-[#EFF3F4] space-y-6">
+                        <p className="text-[#0F1419] font-medium text-lg leading-relaxed" style={{ textWrap: 'pretty' }}>
+                          {lang === 'en' ? SUMMARY_TEXTS[selectedAgentId].en : SUMMARY_TEXTS[selectedAgentId].zh}
+                        </p>
+                        
+                        <div className="pt-6 border-t border-[#EFF3F4] mt-6">
+                          <p className="font-bold text-[#0F1419] mb-4 text-base">{t.understandPrompt}</p>
+                          <div className="flex justify-center gap-4">
                             <button
-                              onClick={() => setMemoryQ1('yes')}
-                              className={`py-3 px-4 rounded-xl text-sm font-bold border transition-all cursor-pointer text-center ${
-                                memoryQ1 === 'yes'
-                                  ? 'bg-[#1D9BF0] text-white border-[#1D9BF0]'
-                                  : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0]'
-                              }`}
+                              onClick={() => {
+                                 setUnderstoodSummary(false);
+                                 setActiveStep('agent_intro');
+                              }}
+                              className="px-8 py-2.5 rounded-full text-sm font-bold border border-[#EFF3F4] text-[#536471] bg-white hover:bg-[#F4212E] hover:text-white hover:border-[#F4212E] transition-all shadow-sm"
                             >
-                              {t.memoryCheckQ1_Yes}
+                              {t.btnNo}
                             </button>
                             <button
-                              onClick={() => setMemoryQ1('no')}
-                              className={`py-3 px-4 rounded-xl text-sm font-bold border transition-all cursor-pointer text-center ${
-                                memoryQ1 === 'no'
-                                  ? 'bg-[#F4212E] text-white border-[#F4212E]'
-                                  : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#F4212E]'
-                              }`}
+                              onClick={() => {
+                                 setUnderstoodSummary(true);
+                                 handleStartEvaluation();
+                              }}
+                              className="px-8 py-2.5 rounded-full text-sm font-bold bg-[#1D9BF0] text-white hover:bg-[#1A8CD8] shadow-sm transition-all"
                             >
-                              {t.memoryCheckQ1_No}
+                              {t.btnYes}
                             </button>
                           </div>
                         </div>
-
-                        {memoryQ1 === 'no' && (
-                          <div className="flex justify-center animate-fade-in">
-                            <button
-                              onClick={() => setActiveStep('agent_intro')}
-                              className="px-6 py-3 bg-[#0F1419] hover:bg-[#272C30] text-white font-bold rounded-full shadow-sm flex items-center gap-1.5 transition-all cursor-pointer"
-                            >
-                              <IconRotateCcw className="w-4 h-4" />
-                              {t.memoryCheckQ1_Review}
-                            </button>
-                          </div>
-                        )}
-
-                        {memoryQ1 === 'yes' && (
-                          <div className="space-y-4 bg-[#F7F9F9] p-5 rounded-2xl border border-[#EFF3F4] animate-fade-in">
-                            <p className="font-bold text-sm text-[#0F1419]">{t.memoryCheckQ2}</p>
-                            <div className="flex flex-col gap-3">
-                              <button
-                                onClick={() => setMemoryQ2('factai')}
-                                className={`py-3 px-4 rounded-xl text-sm font-bold border transition-all cursor-pointer text-center ${
-                                  memoryQ2 === 'factai'
-                                    ? 'bg-[#1D9BF0] text-white border-[#1D9BF0]'
-                                    : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0]'
-                                }`}
-                              >
-                                {t.memoryCheckQ2_Opt1}
-                              </button>
-                              <button
-                                onClick={() => setMemoryQ2('drvera')}
-                                className={`py-3 px-4 rounded-xl text-sm font-bold border transition-all cursor-pointer text-center ${
-                                  memoryQ2 === 'drvera'
-                                    ? 'bg-[#1D9BF0] text-white border-[#1D9BF0]'
-                                    : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0]'
-                                }`}
-                              >
-                                {t.memoryCheckQ2_Opt2}
-                              </button>
-                              <button
-                                onClick={() => setMemoryQ2('axiom')}
-                                className={`py-3 px-4 rounded-xl text-sm font-bold border transition-all cursor-pointer text-center ${
-                                  memoryQ2 === 'axiom'
-                                    ? 'bg-[#1D9BF0] text-white border-[#1D9BF0]'
-                                    : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0]'
-                                }`}
-                              >
-                                {t.memoryCheckQ2_Opt3}
-                              </button>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-
-                      <div className="flex justify-between items-center pt-4 border-t border-[#EFF3F4]">
-                        <button
-                          onClick={() => setActiveStep('agent_intro')}
-                          className="px-4 py-2 text-[#536471] hover:text-[#0F1419] text-sm font-semibold transition-colors cursor-pointer"
-                        >
-                          {t.back}
-                        </button>
-                        <button
-                          onClick={handleStartEvaluation}
-                          disabled={memoryQ1 !== 'yes' || memoryQ2 === null}
-                          className="px-6 py-3 bg-[#1D9BF0] hover:bg-[#1A8CD8] disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold rounded-full shadow-sm flex items-center gap-1.5 transition-all cursor-pointer"
-                        >
-                          {t.startTask} 
-                          <IconPlay className="w-4 h-4 fill-white text-white" />
-                        </button>
                       </div>
                     </div>
                   )}
@@ -1590,8 +1462,8 @@ const handleSubmitSurvey = async () => {
                                       <button
                                         key={num}
                                         onClick={() => {
-                                          const nextStage = 7;
-                                          setStage(nextStage);
+                                          const nextStage = 6; // Stay on stage 6, this is the last step per post
+                                          setRatings(prev => ({ ...prev, updatedConfidence: num }));
                                           saveCurrentPostState({ updatedConfidence: num }, nextStage);
                                         }}
                                         className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${
@@ -1607,105 +1479,6 @@ const handleSubmitSurvey = async () => {
                                   <div className="flex justify-between max-w-md mx-auto text-[11px] text-[#536471] px-2 font-semibold">
                                     <span>{t.q5Anchors[0]}</span>
                                     <span>{t.q5Anchors[1]}</span>
-                                  </div>
-                                </div>
-                              </div>
-                            )}
-
-                            {stage === 7 && activePost.category_en === 'Health' && (
-                              <div className="space-y-4 py-2 animate-fade-in text-center">
-                                <p className="font-bold text-[#0F1419] text-base">
-                                  {t.q7Text}
-                                </p>
-                                <div className="space-y-3">
-                                  <div className="grid grid-cols-7 gap-2 max-w-md mx-auto">
-                                    {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-                                      <button
-                                        key={num}
-                                        onClick={() => {
-                                          const nextStage = 8;
-                                          setStage(nextStage);
-                                          saveCurrentPostState({ healthExpertise: num }, nextStage);
-                                        }}
-                                        className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${
-                                          ratings.healthExpertise === num
-                                            ? 'bg-[#0f1419] text-white border-[#0f1419]'
-                                            : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'
-                                        }`}
-                                      >
-                                        {num}
-                                      </button>
-                                    ))}
-                                  </div>
-                                  <div className="flex justify-between max-w-md mx-auto text-[11px] text-[#536471] px-2 font-semibold">
-                                    <span>{t.q7Anchors[0]}</span>
-                                    <span>{t.q7Anchors[1]}</span>
-                                  </div>
-                                </div>
-                              </div>
-                            )}
-
-                            {stage === 7 && activePost.category_en === 'Science' && (
-                              <div className="space-y-4 py-2 animate-fade-in text-center">
-                                <p className="font-bold text-[#0F1419] text-base">
-                                  {t.q8Text}
-                                </p>
-                                <div className="space-y-3">
-                                  <div className="grid grid-cols-7 gap-2 max-w-md mx-auto">
-                                    {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-                                      <button
-                                        key={num}
-                                        onClick={() => {
-                                          const nextStage = 8;
-                                          setStage(nextStage);
-                                          saveCurrentPostState({ scienceExpertise: num }, nextStage);
-                                        }}
-                                        className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${
-                                          ratings.scienceExpertise === num
-                                            ? 'bg-[#0f1419] text-white border-[#0f1419]'
-                                            : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'
-                                        }`}
-                                      >
-                                        {num}
-                                      </button>
-                                    ))}
-                                  </div>
-                                  <div className="flex justify-between max-w-md mx-auto text-[11px] text-[#536471] px-2 font-semibold">
-                                    <span>{t.q8Anchors[0]}</span>
-                                    <span>{t.q8Anchors[1]}</span>
-                                  </div>
-                                </div>
-                              </div>
-                            )}
-
-                            {stage === 8 && (
-                              <div className="space-y-4 py-2 animate-fade-in text-center">
-                                <p className="font-bold text-[#0F1419] text-base">
-                                  {t.q9Text}
-                                </p>
-                                <div className="space-y-3">
-                                  <div className="grid grid-cols-7 gap-2 max-w-md mx-auto">
-                                    {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-                                      <button
-                                        key={num}
-                                        onClick={() => {
-                                          const nextStage = 8;
-                                          setRatings(prev => ({ ...prev, competence: num }));
-                                          saveCurrentPostState({ competence: num }, nextStage);
-                                        }}
-                                        className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${
-                                          ratings.competence === num
-                                            ? 'bg-[#0f1419] text-white border-[#0f1419]'
-                                            : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'
-                                        }`}
-                                      >
-                                        {num}
-                                      </button>
-                                    ))}
-                                  </div>
-                                  <div className="flex justify-between max-w-md mx-auto text-[11px] text-[#536471] px-2 font-semibold">
-                                    <span>{t.q9Anchors[0]}</span>
-                                    <span>{t.q9Anchors[1]}</span>
                                   </div>
                                 </div>
                               </div>
@@ -1732,7 +1505,7 @@ const handleSubmitSurvey = async () => {
                           className="flex items-center gap-1 px-5 py-2.5 rounded-full text-xs font-bold bg-[#1D9BF0] hover:bg-[#1A8CD8] text-white transition-all disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer shadow-sm"
                           title={!isMoveUnlocked() ? "Please select a response before proceeding" : ""}
                         >
-                          {stage === 8 && currentPostIdx === shuffledPosts.length - 1 ? t.finishStudy : stage === 8 ? t.nextPost : t.next}
+                          {stage === 6 && currentPostIdx === shuffledPosts.length - 1 ? t.finishStudy : stage === 6 ? t.nextPost : t.next}
                           <IconChevronRight className="w-4 h-4" />
                         </button>
                       </div>
@@ -1968,141 +1741,6 @@ const handleSubmitSurvey = async () => {
                         className="px-5 py-2 bg-[#0F1419] text-white text-xs font-bold rounded-full hover:bg-[#272C30]"
                       >
                         {t.modalGotIt}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {showSettings && (
-                <div className="fixed inset-0 bg-[#0F1419]/40 backdrop-blur-sm flex justify-end z-50 animate-fade-in">
-                  <div className="w-full max-w-md bg-white border-l border-[#EFF3F4] h-full p-6 flex flex-col justify-between overflow-y-auto shadow-2xl">
-                    <div className="space-y-6">
-                      
-                      <div className="flex justify-between items-center pb-4 border-b border-[#EFF3F4]">
-                        <div className="flex items-center gap-2">
-                          <IconSliders className="w-5 h-5 text-[#1D9BF0]" />
-                          <h3 className="font-extrabold text-base text-[#0F1419]">{lang === 'en' ? 'Console' : '控制台'}</h3>
-                        </div>
-                        <button 
-                          onClick={() => setShowSettings(false)}
-                          className="p-1.5 text-[#536471] hover:bg-[#F7F9F9] rounded-full transition-colors cursor-pointer"
-                        >
-                          <IconX className="w-5 h-5" />
-                        </button>
-                      </div>
-
-                      <div className="space-y-3 bg-[#F7F9F9] p-4 rounded-2xl border border-[#EFF3F4]">
-                        <h4 className="text-xs font-bold text-[#1D9BF0] uppercase tracking-wider">
-                          {lang === 'en' ? '1. Experimental Parameters' : '1. 实验参数设定'}
-                        </h4>
-                        
-                        <div className="space-y-2">
-                          <label className="text-xs text-[#536471] font-semibold">{lang === 'en' ? 'Agent Assignment Mode' : '助理指派模式'}</label>
-                          <div className="grid grid-cols-3 gap-1.5">
-                            {Object.values(AGENTS).map(ag => (
-                              <button
-                                key={ag.id}
-                                onClick={() => {
-                                  setSelectedAgentId(ag.id);
-                                  setShowSettings(false);
-                                  handleAbandonAndGoHome();
-                                }}
-                                className={`py-2 px-1 rounded-full text-[11px] font-bold border truncate transition-all ${
-                                  selectedAgentId === ag.id 
-                                    ? 'bg-[#1D9BF0] border-[#1D9BF0] text-white shadow-sm' 
-                                    : 'bg-white border-[#EFF3F4] text-[#536471] hover:bg-[#F7F9F9]'
-                                }`}
-                              >
-                                @{ag.name}
-                              </button>
-                            ))}
-                          </div>
-                        </div>
-
-                        <div className="text-[10px] text-slate-500 bg-white p-2.5 rounded-xl border border-slate-100 leading-relaxed mt-2" style={{ textWrap: 'pretty' }}>
-                          <span className="font-bold">⚠️ {lang === 'en' ? 'Independent Variable Info:' : '自变量说明:'}</span>
-                          {lang === 'en' 
-                            ? 'The specified agent determines which single-agent model the participant interacts with during the onboarding flow and evaluation comments section.'
-                            : '指定的助理将决定被试在新手引导和评估评论区域中进行交互的单一助理模型。'}
-                        </div>
-                      </div>
-
-                      <div className="space-y-4 bg-[#F7F9F9] p-4 rounded-2xl border border-[#EFF3F4]">
-                        <h4 className="text-xs font-bold text-[#00BA7C] uppercase tracking-wider flex items-center justify-between">
-                          <span>{lang === 'en' ? '2. Live Performance Metrics' : '2. 实时性能数据'}</span>
-                          <span className="text-[9px] bg-[#00BA7C]/10 text-[#00BA7C] px-2 py-0.5 rounded-full animate-pulse font-bold">{lang === 'en' ? 'Active' : '活跃'}</span>
-                        </h4>
-
-                        <div className="grid grid-cols-3 gap-2 text-center text-xs font-bold">
-                          <div className="bg-white p-2.5 rounded-xl border border-[#EFF3F4]">
-                            <span className="text-[#536471] block font-semibold text-[10px]">{lang === 'en' ? 'Total Logs' : '总记录数'}</span>
-                            <span className="font-extrabold text-[#0F1419] font-mono mt-0.5 block">{totalEvaluated}</span>
-                          </div>
-                          <div className="bg-white p-2.5 rounded-xl border border-[#EFF3F4]">
-                            <span className="text-[#536471] block font-semibold text-[10px]">{lang === 'en' ? 'Pre-Credibility' : '前置可信度'}</span>
-                            <span className="font-extrabold text-[#F4212E] font-mono mt-0.5 block">{avgPreCredibility}</span>
-                          </div>
-                          <div className="bg-white p-2.5 rounded-xl border border-[#EFF3F4]">
-                            <span className="text-[#536471] block font-semibold text-[10px]">{lang === 'en' ? 'Post-Credibility' : '后置可信度'}</span>
-                            <span className="font-extrabold text-[#00BA7C] font-mono mt-0.5 block">{avgPostCredibility}</span>
-                          </div>
-                        </div>
-
-                        <div className="space-y-2 pt-2 border-t border-[#EFF3F4] text-xs font-bold">
-                          <span className="text-[#536471] block font-semibold">{lang === 'en' ? 'Intervention Analysis:' : '干预成效分析：'}</span>
-                          
-                          <div className="space-y-1">
-                            <div className="flex justify-between text-[11px] text-[#536471]">
-                              <span>FactAI</span>
-                              <span>{lang === 'en' ? 'Trust' : '信任度'}: <strong className="text-[#0F1419] font-mono">{getAgentStats('factai').trust}</strong> | {lang === 'en' ? 'Drop' : '降幅'}: <strong className="text-[#F4212E] font-mono">{getAgentStats('factai').drop}</strong></span>
-                            </div>
-                            <div className="h-1 bg-slate-200 rounded-full overflow-hidden flex">
-                              <div className="h-full bg-[#1D9BF0] rounded-full" style={{ width: `${(getAgentStats('factai').trust / 7) * 100}%` }}></div>
-                            </div>
-                          </div>
-
-                          <div className="space-y-1">
-                            <div className="flex justify-between text-[11px] text-[#536471]">
-                              <span>Dr. Vera</span>
-                              <span>{lang === 'en' ? 'Trust' : '信任度'}: <strong className="text-[#0F1419] font-mono">{getAgentStats('drvera').trust}</strong> | {lang === 'en' ? 'Drop' : '降幅'}: <strong className="text-[#F4212E] font-mono">{getAgentStats('drvera').drop}</strong></span>
-                            </div>
-                            <div className="h-1 bg-slate-200 rounded-full overflow-hidden flex">
-                              <div className="h-full bg-[#00BA7C] rounded-full" style={{ width: `${(getAgentStats('drvera').trust / 7) * 100}%` }}></div>
-                            </div>
-                          </div>
-
-                          <div className="space-y-1">
-                            <div className="flex justify-between text-[11px] text-[#536471]">
-                              <span>Axiom</span>
-                              <span>{lang === 'en' ? 'Trust' : '信任度'}: <strong className="text-[#0F1419] font-mono">{getAgentStats('axiom').trust}</strong> | {lang === 'en' ? 'Drop' : '降幅'}: <strong className="text-[#F4212E] font-mono">{getAgentStats('axiom').drop}</strong></span>
-                            </div>
-                            <div className="h-1 bg-slate-200 rounded-full overflow-hidden flex">
-                              <div className="h-full bg-[#7856FF] rounded-full" style={{ width: `${(getAgentStats('axiom').trust / 7) * 100}%` }}></div>
-                            </div>
-                          </div>
-                        </div>
-
-                        {totalEvaluated > 0 && (
-                          <button
-                            onClick={downloadCSV}
-                            className="w-full flex items-center justify-center gap-2 py-2.5 bg-white hover:bg-[#F7F9F9] text-[#0f1419] border border-[#EFF3F4] rounded-full text-xs font-bold transition-all cursor-pointer shadow-sm animate-fade-in"
-                          >
-                            <IconDownload className="w-3.5 h-3.5 text-[#00BA7C]" />
-                            {lang === 'en' ? 'Export Dataset (CSV)' : '导出数据集 (CSV)'}
-                          </button>
-                        )}
-                      </div>
-
-                    </div>
-
-                    <div className="pt-4 border-t border-[#EFF3F4] flex justify-end items-center text-xs">
-                      <button 
-                        onClick={handleClearAllLogs}
-                        className="text-[#F4212E] hover:text-[#f4212e]/80 font-bold flex items-center gap-1 cursor-pointer transition-colors"
-                      >
-                        <IconTrash className="w-3.5 h-3.5" />
-                        {lang === 'en' ? 'Clear All Records' : '清除所有数据记录'}
                       </button>
                     </div>
                   </div>
