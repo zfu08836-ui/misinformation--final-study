@@ -106,7 +106,7 @@
             continueToOnboarding: "Continue to Onboarding",
             meetAssistant: "Meet the Fact-Checking Assistant",
             
-            // Memory / Attention Check
+            // Memory Check
             understandPrompt: "Do you understand?",
             btnYes: "Yes",
             btnNo: "No",
@@ -114,18 +114,20 @@
             startTask: "Start Task",
             backToInstructions: "Back to Instructions",
             categoryLabel: "Category",
-            q1Text: "How likely is this claim to be true?",
-            q1Anchors: ["1 = Extremely unlikely", "7 = Extremely likely"],
-            q2Text: "How confident are you in your judgment?",
+            
+            // Post Evaluation Questions
+            q1Text: "How accurate is the claim in this post?",
+            q1Anchors: ["1 = Completely inaccurate", "7 = Completely accurate"],
+            q2Text: "How confident are you in your assessment of the accuracy of this claim?",
             q2Anchors: ["1 = Not at all confident", "7 = Extremely confident"],
             verifyPrompt: "Verify the post credibility before proceeding:",
             assessRequest: "Please assess the credibility of this claim.",
             sendRequest: "Send Request",
             verifyingText: "Verifying post content parameters...",
-            q3Text: "How believable do you find the fact-checking assistant's claim?",
-            q3Anchors: ["1 = Not believable at all", "7 = Extremely believable"],
-            q4Text: "After seeing the response, how credible do you now find this post?",
-            q4Anchors: ["1 = Not at all credible", "7 = Extremely credible"],
+            q3Text: "For evaluating this claim, how credible do you find this AI fact-checker?",
+            q3Anchors: ["1 = Not at all credible", "7 = Extremely credible"],
+            q4Text: "After seeing the AI fact-check, how accurate do you now think the claim in this post is?",
+            q4Anchors: ["1 = Completely inaccurate", "7 = Completely accurate"],
             q5Text: "How confident are you in your judgment?",
             q5Anchors: ["1 = Not at all confident", "7 = Extremely confident"],
 
@@ -138,29 +140,31 @@
             // Post-Interaction Survey
             postSurveyTitle: "Post-Interaction Survey",
             surveyHeading: "Please rate the AI fact-checking assistant you interacted with on the following aspects.",
-            sectionExpertise: "【Perceived Expertise】",
-            sectionCompetence: "【Perceived Competence】",
-            sectionEmotional: "【Emotional Perception】",
-            sectionIntent: "【Continued Use Intention】",
-            postSurveyQ1: "1. How would you rate this assistant's expertise in health topics?",
-            postSurveyQ1Anchors: ["Not an expert", "Expert"],
-            postSurveyQ2: "2. How would you rate this assistant's expertise in technology topics?",
-            postSurveyQ2Anchors: ["Not an expert", "Expert"],
-            postSurveyQ3: "3. How much did this assistant's claimed area of expertise influence your evaluation of its responses?",
-            postSurveyQ3Anchors: ["Not at all", "Very much so"],
-            postSurveyQ4: "4. Overall, how competent did this assistant seem at identifying misinformation?",
-            postSurveyQ4Anchors: ["Not at all competent", "Very competent"],
-            postSurveyQ5: "5. How much would you still want to verify the information through other sources after seeing AI's fact-checking response?",
-            postSurveyQ5Anchors: ["Not at all", "Very much so"],
-            postSurveyQ6: "6. How comfortable did you feel relying on this assistant's fact-checking results?",
-            postSurveyQ6Anchors: ["Very uncomfortable", "Very comfortable"],
-            postSurveyQ7: "7. How likely are you to use an AI fact-checking feature like this to help you evaluate information accuracy in the future?",
-            postSurveyQ7Anchors: ["Very unlikely", "Very likely"],
+            
+            sq1_title: "1. Overall, how would you rate this AI fact-checker’s expertise in health and medicine?",
+            sq2_title: "2. Overall, how would you rate this AI fact-checker’s expertise in science and technology?",
+            
+            lbl_knowledgeable: "Knowledgeable",
+            anchors_knowledgeable: ["1 = Not at all knowledgeable", "7 = Extremely knowledgeable"],
+            lbl_expert: "Expert",
+            anchors_expert: ["1 = Not at all expert", "7 = Extremely expert"],
+            lbl_experienced: "Experienced",
+            anchors_experienced: ["1 = Not at all experienced", "7 = Extremely experienced"],
+            
+            sq3_text: "3. To what extent did you pay attention to the AI fact-checker’s stated area of expertise when evaluating its fact-checks?",
+            sq3_anchors: ["1 = Not at all", "7 = Very much"],
+            sq4_text: "4. Overall, how competent did this AI fact-checker seem at identifying misinformation?",
+            sq4_anchors: ["1 = Not at all competent", "7 = Extremely competent"],
+            sq5_text: "5. After receiving an AI fact-check, how likely would you be to verify the claim using another source?",
+            sq5_anchors: ["1 = Extremely unlikely", "7 = Extremely likely"],
+            sq6_text: "6. Overall, how willing would you be to rely on this AI fact-checker when evaluating the accuracy of online information?",
+            sq6_anchors: ["1 = Not at all willing to rely on it", "7 = Extremely willing to rely on it"],
+            sq7_text: "7. How likely are you to use an AI fact-checking feature like this to help you evaluate information accuracy in the future?",
+            sq7_anchors: ["1 = Extremely unlikely", "7 = Extremely likely"],
 
             submitFinish: "Submit & Finish Study",
             completedTitle: "Experiment Completed!",
             completedText: "Thank you for participating. Your ratings and behavioral decisions have been securely logged into our researcher laboratory database.",
-            restartSimulation: "Restart Simulation",
             modalInstructionTitle: "Task Instructions",
             modalGotIt: "Got it"
           },
@@ -182,7 +186,6 @@
             continueToOnboarding: "继续前往新手引导",
             meetAssistant: "认识事实核查助理",
 
-            // Memory / Attention Check
             understandPrompt: "您明白了吗？",
             btnYes: "是",
             btnNo: "否",
@@ -190,20 +193,22 @@
             startTask: "开始任务",
             backToInstructions: "返回任务说明",
             categoryLabel: "分类",
-            q1Text: "您认为该说法属实的可能性有多大？",
-            q1Anchors: ["1 = 极不可能", "7 = 极有可能"],
-            q2Text: "您对自己的判断有多大信心？",
-            q2Anchors: ["1 = 完全没信心", "7 = 极有信心"],
+            
+            // Post Evaluation Questions
+            q1Text: "您认为这篇帖子中的说法有多准确？",
+            q1Anchors: ["1 = 完全不准确", "7 = 完全准确"],
+            q2Text: "您对自己刚才关于这条说法准确性的判断有多大信心？",
+            q2Anchors: ["1 = 完全没有信心", "7 = 非常有信心"],
             verifyPrompt: "在继续之前，请先核实验证推文的可信度：",
             assessRequest: "请评估该说法的可信度。",
             sendRequest: "发送请求",
             verifyingText: "正在验证帖子内容参数...",
-            q3Text: "您认为该事实核查助手的说法有多可信？",
-            q3Anchors: ["1 = 完全不可信", "7 = 极度可信"],
-            q4Text: "看到核查回复后，您现在认为该帖子的可信度如何？",
-            q4Anchors: ["1 = 完全不可信", "7 = 极度可信"],
+            q3Text: "针对这条说法的核查，您认为这位 AI 事实核查员有多可信？",
+            q3Anchors: ["1 = 完全不可信", "7 = 非常可信"],
+            q4Text: "在看到 AI 核查结果后，您现在认为这篇帖子中的说法有多准确？",
+            q4Anchors: ["1 = 完全不准确", "7 = 完全准确"],
             q5Text: "您对自己的判断有多大信心？",
-            q5Anchors: ["1 = 完全没信心", "7 = 极有信心"],
+            q5Anchors: ["1 = 完全没有信心", "7 = 非常有信心"],
 
             previousPost: "上一篇",
             back: "返回",
@@ -214,29 +219,31 @@
             // Post-Interaction Survey
             postSurveyTitle: "后置交互问卷",
             surveyHeading: "请根据您与该AI事实核查助理的交互情况，对以下几个维度进行评估。",
-            sectionExpertise: "【感知专业度 Perceived Expertise】",
-            sectionCompetence: "【感知胜任度 Perceived Competence】",
-            sectionEmotional: "【情感感知 Emotional Perception】",
-            sectionIntent: "【持续使用意愿 Continued Use Intention】",
-            postSurveyQ1: "1. 您如何评价该助理在健康话题上的专业程度？",
-            postSurveyQ1Anchors: ["不是专家", "专家"],
-            postSurveyQ2: "2. 您如何评价该助理在科技话题上的专业程度？",
-            postSurveyQ2Anchors: ["不是专家", "专家"],
-            postSurveyQ3: "3. 这位助理所声称的专业领域在多大程度上影响了您对其回复的评估？",
-            postSurveyQ3Anchors: ["完全没有影响", "影响非常大"],
-            postSurveyQ4: "4. 总体而言，该助手在识别错误信息方面显得有多胜任？",
-            postSurveyQ4Anchors: ["完全不胜任", "非常胜任"],
-            postSurveyQ5: "5. 在看到AI的核查回复后，您在多大程度上仍想通过其他来源验证该信息？",
-            postSurveyQ5Anchors: ["完全不想", "非常想"],
-            postSurveyQ6: "6. 依赖该助手的核查结果让您感觉有多自在/放心？",
-            postSurveyQ6Anchors: ["非常不自在", "非常自在"],
-            postSurveyQ7: "7. 未来您有多大可能使用类似的AI事实核查功能来帮助评估信息准确性？",
-            postSurveyQ7Anchors: ["极不可能", "极有可能"],
+            
+            sq1_title: "1. 总体而言，您如何评价这位 AI 事实核查员在健康与医学领域的专业程度？",
+            sq2_title: "2. 总体而言，您如何评价这位 AI 事实核查员在科学与技术领域的专业程度？",
+            
+            lbl_knowledgeable: "知识丰富程度",
+            anchors_knowledgeable: ["1 = 非常缺乏相关知识", "7 = 非常有相关知识"],
+            lbl_expert: "专业程度",
+            anchors_expert: ["1 = 完全不像专家", "7 = 非常像专家"],
+            lbl_experienced: "经验程度",
+            anchors_experienced: ["1 = 完全没有相关经验", "7 = 非常有相关经验"],
+
+            sq3_text: "3. 在评价 AI 核查结果时，您在多大程度上注意到了这位 AI 事实核查员所声明的专业领域？",
+            sq3_anchors: ["1 = 完全没有注意", "7 = 非常注意"],
+            sq4_text: "4. 总体而言，您认为这位 AI 事实核查员识别错误信息的能力如何？",
+            sq4_anchors: ["1 = 完全没有能力", "7 = 非常有能力"],
+            sq5_text: "5. 在看到 AI 事实核查后，您通过其他信息来源进一步核实相关说法的可能性有多大？",
+            sq5_anchors: ["1 = 完全不可能", "7 = 非常可能"],
+            sq6_text: "6. 总体而言，在判断网络信息是否准确时，您愿意在多大程度上依赖这位 AI 事实核查员？",
+            sq6_anchors: ["1 = 完全不愿意依赖", "7 = 非常愿意依赖"],
+            sq7_text: "7. 未来您是否愿意使用类似的AI核查功能来帮助评估信息准确性？",
+            sq7_anchors: ["1 = 完全不可能", "7 = 非常可能"],
 
             submitFinish: "提交并完成实验",
             completedTitle: "实验数据提交成功！",
             completedText: "感谢您的参与。您的评分和行为决策数据已安全传输并记录至我们的研究实验数据库中。",
-            restartSimulation: "重新开始模拟",
             modalInstructionTitle: "任务说明",
             modalGotIt: "我知道了"
           }
@@ -250,7 +257,7 @@
             tagline_zh: "通用型 AI 助理",
             badge_en: "General AI",
             badge_zh: "通用 AI",
-            gradient: "from-[#1D9BF0] to-[#00C6FF]",
+            gradient: "from-[#FFB74D] to-[#F57C00]", // Unified Light Orange
             avatarLetter: "G",
             intro_en: "A general-purpose AI assistant. It is trained on a broad range of publicly available web text, with no specialization in any particular field and no professional credentials. It can give general fact-checks across many topics, but has no deeper knowledge in any single professional domain than in any other.",
             intro_zh: "一个通用型 AI 助理。它基于广泛的公开网络文本训练，不针对任何特定领域，也没有专业资质。它可以就各种话题给出一般性的信息核查，但在任何单一专业领域都不具备比其他领域更深入的知识。"
@@ -262,7 +269,7 @@
             tagline_zh: "医学 AI 专家 (Vera)",
             badge_en: "Health Expert",
             badge_zh: "健康专家",
-            gradient: "from-[#00BA7C] to-[#2CD49F]",
+            gradient: "from-[#FFB74D] to-[#F57C00]", // Unified Light Orange
             avatarLetter: "V",
             intro_en: "Vera, a Medical AI Specialist. Trained on peer-reviewed medical literature, clinical guidelines, and public-health databases, and built specifically to verify information in health, medicine, and the life sciences. It is strong at assessing claims about disease, treatment, medication, nutrition, and public health.",
             intro_zh: "Vera, 医学 AI 专家。基于同行评审的医学文献、临床指南和公共卫生数据库训练，专门用于核查健康、医学与生命科学领域的信息。它擅长评估疾病、治疗、药物、营养与公共卫生相关的说法。"
@@ -274,7 +281,7 @@
             tagline_zh: "科学 AI 专家 (Axiom)",
             badge_en: "Science Expert",
             badge_zh: "科学专家",
-            gradient: "from-[#7856FF] to-[#A389FF]",
+            gradient: "from-[#FFB74D] to-[#F57C00]", // Unified Light Orange
             avatarLetter: "A",
             intro_en: "Axiom, a Science AI Specialist. Trained on computer science, digital media research, and engineering protocols. It acts as an science expert. It provides precise breakdowns on digital systems, consumer technology, and online tech myths from first principles.",
             intro_zh: "Axiom, 科学AI专家。基于计算机科学、数字媒体研究和工程技术协议训练。它作为一个分析型科学专家，遵循第一性原理对数字系统、消费级电子技术以及各种网络科技流言、科学迷思进行严密的拆解剖析。"
@@ -648,7 +655,7 @@
           if (!text) return null;
           const parts = text.split(/(\*\*.*?\*\*)/g);
           return (
-            <p className="text-[#0f1419] leading-relaxed text-[15px]">
+            <span className="text-[#0f1419] leading-relaxed text-[15px]">
               {parts.map((part, index) => {
                 if (part.startsWith('**') && part.endsWith('**')) {
                   return (
@@ -659,7 +666,7 @@
                 }
                 return part;
               })}
-            </p>
+            </span>
           );
         }
 
@@ -675,9 +682,13 @@
 
           const [understoodSummary, setUnderstoodSummary] = useState(null);
 
-          // Post-Survey states
-          const [surveyQ1, setSurveyQ1] = useState(null);
-          const [surveyQ2, setSurveyQ2] = useState(null);
+          // Post-Survey states (7 sections, 11 values total)
+          const [surveyQ1a, setSurveyQ1a] = useState(null);
+          const [surveyQ1b, setSurveyQ1b] = useState(null);
+          const [surveyQ1c, setSurveyQ1c] = useState(null);
+          const [surveyQ2a, setSurveyQ2a] = useState(null);
+          const [surveyQ2b, setSurveyQ2b] = useState(null);
+          const [surveyQ2c, setSurveyQ2c] = useState(null);
           const [surveyQ3, setSurveyQ3] = useState(null);
           const [surveyQ4, setSurveyQ4] = useState(null);
           const [surveyQ5, setSurveyQ5] = useState(null);
@@ -686,10 +697,10 @@
 
           const [answers, setAnswers] = useState(
             Array(POSTS.length).fill(null).map(() => ({
-              initialCredibility: null, 
+              initialAccuracy: null, 
               initialConfidence: null,  
-              agentTrust: null,         
-              updatedCredibility: null, 
+              aiCredibility: null,         
+              updatedAccuracy: null, 
               updatedConfidence: null,         
               stage: 0
             }))
@@ -697,10 +708,10 @@
 
           const [stage, setStage] = useState(0);
           const [ratings, setRatings] = useState({
-            initialCredibility: null,
+            initialAccuracy: null,
             initialConfidence: null,
-            agentTrust: null,
-            updatedCredibility: null,
+            aiCredibility: null,
+            updatedAccuracy: null,
             updatedConfidence: null
           });
 
@@ -715,16 +726,16 @@
           const assignedAgent = AGENTS[selectedAgentId];
 
           // ⚠️ 这里替换为你生成的 SheetDB API 链接
-          const GOOGLE_SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzCAgSN6jSIOJ0LePg_gx8CYEa6edp8C2Z4EFzcOn85IiJwNnTSOhXBvIVIysoG11H-/exec";
+          const GOOGLE_SHEETS_WEBHOOK_URL = "https://sheetdb.io/api/v1/你的专属代码";
 
           useEffect(() => {
             const saved = answers[currentPostIdx];
             if (saved) {
               setRatings({
-                initialCredibility: saved.initialCredibility,
+                initialAccuracy: saved.initialAccuracy,
                 initialConfidence: saved.initialConfidence,
-                agentTrust: saved.agentTrust,
-                updatedCredibility: saved.updatedCredibility,
+                aiCredibility: saved.aiCredibility,
+                updatedAccuracy: saved.updatedAccuracy,
                 updatedConfidence: saved.updatedConfidence
               });
               setStage(saved.stage);
@@ -799,32 +810,29 @@
             setShuffledPosts(POSTS);
             setCurrentSessionId("SESS_" + Date.now());
 
-            setSurveyQ1(null);
-            setSurveyQ2(null);
-            setSurveyQ3(null);
-            setSurveyQ4(null);
-            setSurveyQ5(null);
-            setSurveyQ6(null);
-            setSurveyQ7(null);
+            setSurveyQ1a(null); setSurveyQ1b(null); setSurveyQ1c(null);
+            setSurveyQ2a(null); setSurveyQ2b(null); setSurveyQ2c(null);
+            setSurveyQ3(null); setSurveyQ4(null); setSurveyQ5(null);
+            setSurveyQ6(null); setSurveyQ7(null);
 
             setActiveStep('evaluation');
             setCurrentPostIdx(0);
             setAnswers(
               Array(POSTS.length).fill(null).map(() => ({
-                initialCredibility: null,
+                initialAccuracy: null,
                 initialConfidence: null,
-                agentTrust: null,
-                updatedCredibility: null,
+                aiCredibility: null,
+                updatedAccuracy: null,
                 updatedConfidence: null,
                 stage: 0
               }))
             );
             setStage(0);
             setRatings({
-              initialCredibility: null,
+              initialAccuracy: null,
               initialConfidence: null,
-              agentTrust: null,
-              updatedCredibility: null,
+              aiCredibility: null,
+              updatedAccuracy: null,
               updatedConfidence: null
             });
           };
@@ -864,11 +872,11 @@
           };
 
           const handleMoveNext = () => {
-            if (stage === 0 && ratings.initialCredibility === null) return;
+            if (stage === 0 && ratings.initialAccuracy === null) return;
             if (stage === 1 && ratings.initialConfidence === null) return;
             if (stage === 2) return; 
-            if (stage === 4 && ratings.agentTrust === null) return;
-            if (stage === 5 && ratings.updatedCredibility === null) return;
+            if (stage === 4 && ratings.aiCredibility === null) return;
+            if (stage === 5 && ratings.updatedAccuracy === null) return;
             if (stage === 6 && ratings.updatedConfidence === null) return;
 
             if (stage === 0) {
@@ -908,18 +916,14 @@
               postCategory: activePost.category_en,
               agentId: selectedAgentId,
               understoodSummary: understoodSummary ? 'Yes' : 'No',
-              initialCredibility: currentAnswer.initialCredibility,
+              initialAccuracy: currentAnswer.initialAccuracy,
               initialConfidence: currentAnswer.initialConfidence,
-              agentTrust: currentAnswer.agentTrust, // Note: This stores the "Believability" value
-              updatedCredibility: currentAnswer.updatedCredibility,
+              aiCredibility: currentAnswer.aiCredibility,
+              updatedAccuracy: currentAnswer.updatedAccuracy,
               updatedConfidence: currentAnswer.updatedConfidence,
-              surveyQ1: null,
-              surveyQ2: null,
-              surveyQ3: null,
-              surveyQ4: null,
-              surveyQ5: null,
-              surveyQ6: null,
-              surveyQ7: null
+              surveyQ1a: null, surveyQ1b: null, surveyQ1c: null,
+              surveyQ2a: null, surveyQ2b: null, surveyQ2c: null,
+              surveyQ3: null, surveyQ4: null, surveyQ5: null, surveyQ6: null, surveyQ7: null
             };
 
             if (existingLogIdx > -1) {
@@ -946,13 +950,9 @@
               if (item.sessionId === currentSessionId) {
                 return {
                   ...item,
-                  surveyQ1: surveyQ1,
-                  surveyQ2: surveyQ2,
-                  surveyQ3: surveyQ3,
-                  surveyQ4: surveyQ4,
-                  surveyQ5: surveyQ5,
-                  surveyQ6: surveyQ6,
-                  surveyQ7: surveyQ7
+                  surveyQ1a, surveyQ1b, surveyQ1c,
+                  surveyQ2a, surveyQ2b, surveyQ2c,
+                  surveyQ3, surveyQ4, surveyQ5, surveyQ6, surveyQ7
                 };
               }
               return item;
@@ -984,53 +984,64 @@
           const handleAbandonAndGoHome = () => {
             setCurrentPostIdx(0);
             resetRatingsForPost();
-            setSurveyQ1(null);
-            setSurveyQ2(null);
-            setSurveyQ3(null);
-            setSurveyQ4(null);
-            setSurveyQ5(null);
-            setSurveyQ6(null);
-            setSurveyQ7(null);
+            setSurveyQ1a(null); setSurveyQ1b(null); setSurveyQ1c(null);
+            setSurveyQ2a(null); setSurveyQ2b(null); setSurveyQ2c(null);
+            setSurveyQ3(null); setSurveyQ4(null); setSurveyQ5(null);
+            setSurveyQ6(null); setSurveyQ7(null);
             setParticipantId('');
             setActiveStep('login');
           };
 
           const resetRatingsForPost = () => {
             setRatings({
-              initialCredibility: null,
+              initialAccuracy: null,
               initialConfidence: null,
-              agentTrust: null,
-              updatedCredibility: null,
+              aiCredibility: null,
+              updatedAccuracy: null,
               updatedConfidence: null
             });
             setStage(0);
           };
 
-          const handleClearAllLogs = () => {
-            setHistory([]);
-            handleAbandonAndGoHome();
-          };
-
           const isMoveUnlocked = () => {
-            if (stage === 0) return ratings.initialCredibility !== null;
+            if (stage === 0) return ratings.initialAccuracy !== null;
             if (stage === 1) return ratings.initialConfidence !== null;
             if (stage === 2) return false; 
             if (stage === 3) return false; 
-            if (stage === 4) return ratings.agentTrust !== null;
-            if (stage === 5) return ratings.updatedCredibility !== null;
+            if (stage === 4) return ratings.aiCredibility !== null;
+            if (stage === 5) return ratings.updatedAccuracy !== null;
             if (stage === 6) return ratings.updatedConfidence !== null;
             return false;
           };
 
           const isSurveyComplete = () => {
-              return surveyQ1 !== null && 
-                     surveyQ2 !== null && 
-                     surveyQ3 !== null && 
-                     surveyQ4 !== null && 
-                     surveyQ5 !== null && 
-                     surveyQ6 !== null && 
-                     surveyQ7 !== null;
+              return surveyQ1a !== null && surveyQ1b !== null && surveyQ1c !== null &&
+                     surveyQ2a !== null && surveyQ2b !== null && surveyQ2c !== null &&
+                     surveyQ3 !== null && surveyQ4 !== null && surveyQ5 !== null && 
+                     surveyQ6 !== null && surveyQ7 !== null;
           };
+
+          // Reusable UI component for 3-part subquestions
+          const renderSubQuestion = (label, anchors, value, setter) => (
+            <div className="pt-4 border-t border-[#EFF3F4] first:border-0 first:pt-0">
+              <p className="font-semibold text-xs text-[#536471] mb-2">{label}</p>
+              <div className="grid grid-cols-7 gap-1.5 max-w-lg mx-auto">
+                {[1, 2, 3, 4, 5, 6, 7].map(num => (
+                  <button
+                    key={num}
+                    onClick={() => setter(num)}
+                    className={`h-10 rounded-full text-xs font-bold border transition-all shadow-sm ${value === num ? 'bg-[#0f1419] text-white border-[#0f1419]' : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0]'}`}
+                  >
+                    {num}
+                  </button>
+                ))}
+              </div>
+              <div className="flex justify-between text-[11px] text-[#536471] font-semibold px-2 mt-1.5 max-w-lg mx-auto">
+                <span>{anchors[0]}</span>
+                <span>{anchors[1]}</span>
+              </div>
+            </div>
+          );
 
           return (
             <div className="min-h-screen bg-[#F7F9F9] text-[#0F1419] flex flex-col justify-between font-sans selection:bg-[#1D9BF0]/20">
@@ -1050,10 +1061,10 @@
                   <button
                     onClick={() => setLang(prev => prev === 'en' ? 'zh' : 'en')}
                     className="px-3.5 py-1.5 text-xs font-bold text-[#536471] bg-[#F7F9F9] border border-[#EFF3F4] hover:bg-[#EFF3F4] rounded-full transition-all cursor-pointer flex items-center gap-1.5"
-                    title="Switch Language / 切换语言"
+                    title="Switch Language"
                   >
                     <IconGlobe className="w-3.5 h-3.5" />
-                    <span>{lang === 'en' ? '中文' : 'English'}</span>
+                    <span>{t.switchLang}</span>
                   </button>
                 </div>
               </header>
@@ -1066,12 +1077,10 @@
                       <button
                         onClick={handleAbandonAndGoHome}
                         className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-[#F4212E] bg-[#F4212E]/5 border border-[#F4212E]/10 hover:bg-[#F4212E]/10 transition-all cursor-pointer"
-                        title="Discard session and go to instructions screen"
                       >
                         <IconRotateCcw className="w-3.5 h-3.5" />
                         {t.restart}
                       </button>
-                      
                       <span className="text-xs font-bold text-[#1D9BF0] bg-[#1D9BF0]/10 py-1 px-3 rounded-full">
                         {t.postIndicator.replace('{current}', currentPostIdx + 1).replace('{total}', shuffledPosts.length)}
                       </span>
@@ -1111,12 +1120,10 @@
                         <h1 className="text-2.5xl font-black text-[#0F1419] tracking-tight" style={{ textWrap: 'balance' }}>
                           {t.taskTitle}
                         </h1>
-                        
                         <p className="text-[#536471] text-[15px] leading-relaxed" style={{ textWrap: 'pretty' }}>
                           {t.welcomeText}
                         </p>
                       </div>
-
                       <div className="flex justify-center pt-2 animate-fade-in">
                         <button
                           onClick={handleStartExperiment}
@@ -1132,11 +1139,8 @@
                   {activeStep === 'agent_intro' && (
                     <div className="p-6 md:p-8 space-y-6 flex-1 flex flex-col justify-center animate-fade-in">
                       <div className="space-y-2 text-center max-w-xl mx-auto">
-                        <h2 className="text-2xl font-bold text-[#0F1419]">
-                          {t.meetAssistant}
-                        </h2>
+                        <h2 className="text-2xl font-bold text-[#0F1419]">{t.meetAssistant}</h2>
                       </div>
-
                       <div className="max-w-md w-full mx-auto border border-[#EFF3F4] rounded-2xl p-6 hover:border-[#1D9BF0]/40 transition-all bg-white shadow-sm space-y-4">
                         <div className="flex items-center gap-3">
                           <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${assignedAgent.gradient} flex items-center justify-center text-white font-black text-xl select-none shadow-sm`}>
@@ -1154,25 +1158,16 @@
                             </p>
                           </div>
                         </div>
-                        
                         <div className="text-[#536471] text-xs leading-relaxed" style={{ textWrap: 'pretty' }}>
                           <MiniMarkdown text={lang === 'en' ? assignedAgent.intro_en : assignedAgent.intro_zh} />
                         </div>
                       </div>
-
                       <div className="flex justify-between items-center pt-4 border-t border-[#EFF3F4]">
-                        <button
-                          onClick={() => setActiveStep('welcome')}
-                          className="px-4 py-2 text-[#536471] hover:text-[#0F1419] text-sm font-semibold transition-colors cursor-pointer"
-                        >
+                        <button onClick={() => setActiveStep('welcome')} className="px-4 py-2 text-[#536471] hover:text-[#0F1419] text-sm font-semibold transition-colors cursor-pointer">
                           {t.backToInstructions}
                         </button>
-                        <button
-                          onClick={handleGoToMemoryCheck}
-                          className="px-6 py-3 bg-[#1D9BF0] hover:bg-[#1A8CD8] text-white font-bold rounded-full shadow-sm flex items-center gap-1.5 transition-all cursor-pointer"
-                        >
-                          {t.next} 
-                          <IconChevronRight className="w-4 h-4 fill-white text-white" />
+                        <button onClick={handleGoToMemoryCheck} className="px-6 py-3 bg-[#1D9BF0] hover:bg-[#1A8CD8] text-white font-bold rounded-full shadow-sm flex items-center gap-1.5 transition-all cursor-pointer">
+                          {t.next} <IconChevronRight className="w-4 h-4 fill-white text-white" />
                         </button>
                       </div>
                     </div>
@@ -1184,26 +1179,13 @@
                         <p className="text-[#0F1419] font-medium text-lg leading-relaxed" style={{ textWrap: 'pretty' }}>
                           {lang === 'en' ? SUMMARY_TEXTS[selectedAgentId].en : SUMMARY_TEXTS[selectedAgentId].zh}
                         </p>
-                        
                         <div className="pt-6 border-t border-[#EFF3F4] mt-6">
                           <p className="font-bold text-[#0F1419] mb-4 text-base">{t.understandPrompt}</p>
                           <div className="flex justify-center gap-4">
-                            <button
-                              onClick={() => {
-                                 setUnderstoodSummary(false);
-                                 setActiveStep('agent_intro');
-                              }}
-                              className="px-8 py-2.5 rounded-full text-sm font-bold border border-[#EFF3F4] text-[#536471] bg-white hover:bg-[#F4212E] hover:text-white hover:border-[#F4212E] transition-all shadow-sm"
-                            >
+                            <button onClick={() => { setUnderstoodSummary(false); setActiveStep('agent_intro'); }} className="px-8 py-2.5 rounded-full text-sm font-bold border border-[#EFF3F4] text-[#536471] bg-white hover:bg-[#F4212E] hover:text-white hover:border-[#F4212E] transition-all shadow-sm">
                               {t.btnNo}
                             </button>
-                            <button
-                              onClick={() => {
-                                 setUnderstoodSummary(true);
-                                 handleStartEvaluation();
-                              }}
-                              className="px-8 py-2.5 rounded-full text-sm font-bold bg-[#1D9BF0] text-white hover:bg-[#1A8CD8] shadow-sm transition-all"
-                            >
+                            <button onClick={() => { setUnderstoodSummary(true); handleStartEvaluation(); }} className="px-8 py-2.5 rounded-full text-sm font-bold bg-[#1D9BF0] text-white hover:bg-[#1A8CD8] shadow-sm transition-all">
                               {t.btnYes}
                             </button>
                           </div>
@@ -1226,9 +1208,7 @@
                                 <span className="font-bold text-[#0F1419] text-sm">{activePost.author}</span>
                               </div>
                               <div className={`mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-md border text-[11px] font-bold uppercase tracking-wider ${
-                                activePost.category_en === 'Health' 
-                                  ? 'bg-emerald-50 text-emerald-700 border-emerald-200' 
-                                  : 'bg-indigo-50 text-indigo-700 border-indigo-200'
+                                activePost.category_en === 'Health' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-indigo-50 text-indigo-700 border-indigo-200'
                               }`}>
                                 {activePost.category_en === 'Health' ? <IconActivity className="w-3.5 h-3.5"/> : <IconFlask className="w-3.5 h-3.5"/>}
                                 {t.categoryLabel}: {lang === 'en' ? activePost.category_en : activePost.category_zh}
@@ -1236,46 +1216,26 @@
                             </div>
                           </div>
                         </div>
-
                         <p className="text-[#0F1419] text-[15px] leading-relaxed font-normal whitespace-pre-line mt-2">
                           {lang === 'en' ? activePost.content_en : activePost.content_zh}
                         </p>
-
-                        <div className="flex items-center justify-end pt-3 border-t border-[#EFF3F4] text-xs text-[#536471]">
-                          <span className="text-[9px] bg-[#F7F9F9] border border-[#EFF3F4] px-2 py-0.5 rounded text-[#536471] font-mono">Post ID: {activePost.id}</span>
-                        </div>
                       </div>
 
                       <div className="flex-1 flex flex-col justify-center pt-2 min-h-[180px]">
                         
                         {stage === 0 && (
                           <div className="space-y-4 py-4 animate-fade-in">
-                            <p className="text-center font-bold text-[#0F1419] text-base">
-                              {t.q1Text}
-                            </p>
+                            <p className="text-center font-bold text-[#0F1419] text-base">{t.q1Text}</p>
                             <div className="space-y-3">
                               <div className="grid grid-cols-7 gap-2 max-w-md mx-auto">
                                 {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-                                  <button
-                                    key={num}
-                                    onClick={() => {
-                                      const nextStage = 1;
-                                      setStage(nextStage);
-                                      saveCurrentPostState({ initialCredibility: num }, nextStage);
-                                    }}
-                                    className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm active:scale-95 ${
-                                      ratings.initialCredibility === num
-                                        ? 'bg-[#0f1419] text-white border-[#0f1419]'
-                                        : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'
-                                    }`}
-                                  >
+                                  <button key={num} onClick={() => { setStage(1); saveCurrentPostState({ initialAccuracy: num }, 1); }} className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm active:scale-95 ${ratings.initialAccuracy === num ? 'bg-[#0f1419] text-white border-[#0f1419]' : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'}`}>
                                     {num}
                                   </button>
                                 ))}
                               </div>
                               <div className="flex justify-between max-w-md mx-auto text-[11px] text-[#536471] px-2 font-semibold">
-                                <span>{t.q1Anchors[0]}</span>
-                                <span>{t.q1Anchors[1]}</span>
+                                <span>{t.q1Anchors[0]}</span><span>{t.q1Anchors[1]}</span>
                               </div>
                             </div>
                           </div>
@@ -1283,32 +1243,17 @@
 
                         {stage === 1 && (
                           <div className="space-y-4 py-4 animate-fade-in">
-                            <p className="text-center font-bold text-[#0F1419] text-base">
-                              {t.q2Text}
-                            </p>
+                            <p className="text-center font-bold text-[#0F1419] text-base">{t.q2Text}</p>
                             <div className="space-y-3">
                               <div className="grid grid-cols-7 gap-2 max-w-md mx-auto">
                                 {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-                                  <button
-                                    key={num}
-                                    onClick={() => {
-                                      const nextStage = 2;
-                                      setStage(nextStage);
-                                      saveCurrentPostState({ initialConfidence: num }, nextStage);
-                                    }}
-                                    className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm active:scale-95 ${
-                                      ratings.initialConfidence === num
-                                        ? 'bg-[#0f1419] text-white border-[#0f1419]'
-                                        : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'
-                                    }`}
-                                  >
+                                  <button key={num} onClick={() => { setStage(2); saveCurrentPostState({ initialConfidence: num }, 2); }} className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm active:scale-95 ${ratings.initialConfidence === num ? 'bg-[#0f1419] text-white border-[#0f1419]' : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'}`}>
                                     {num}
                                   </button>
                                 ))}
                               </div>
                               <div className="flex justify-between max-w-md mx-auto text-[11px] text-[#536471] px-2 font-semibold">
-                                <span>{t.q2Anchors[0]}</span>
-                                <span>{t.q2Anchors[1]}</span>
+                                <span>{t.q2Anchors[0]}</span><span>{t.q2Anchors[1]}</span>
                               </div>
                             </div>
                           </div>
@@ -1316,26 +1261,17 @@
 
                         {stage === 2 && (
                           <div className="space-y-4 py-2 animate-fade-in">
-                            <p className="text-center font-bold text-[#536471] text-xs uppercase tracking-wider">
-                              {t.verifyPrompt}
-                            </p>
-                            
+                            <p className="text-center font-bold text-[#536471] text-xs uppercase tracking-wider">{t.verifyPrompt}</p>
                             <div className="max-w-2xl w-full mx-auto bg-white border border-[#EFF3F4] rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm hover:border-[#1D9BF0]/40 transition-colors">
                               <div className="flex flex-col gap-2 flex-1 min-w-0">
                                 <div className="flex">
-                                  <span className="text-xs font-bold text-white bg-gradient-to-r from-[#1D9BF0] to-[#00C6FF] px-3.5 py-1 rounded-full select-none shadow-sm">
+                                  <span className={`text-xs font-bold text-white bg-gradient-to-r ${assignedAgent.gradient} px-3.5 py-1 rounded-full select-none shadow-sm`}>
                                     @{assignedAgent.name}
                                   </span>
                                 </div>
-                                <span className="text-sm text-[#536471] font-medium leading-relaxed block" style={{ textWrap: 'pretty' }}>
-                                  {t.assessRequest}
-                                </span>
+                                <span className="text-sm text-[#536471] font-medium leading-relaxed block" style={{ textWrap: 'pretty' }}>{t.assessRequest}</span>
                               </div>
-                              
-                              <button
-                                onClick={handleSendRequest}
-                                className="px-6 py-2.5 bg-[#1D9BF0] hover:bg-[#1A8CD8] text-white font-bold rounded-full transition-all cursor-pointer text-xs shrink-0 shadow-sm hover:scale-[1.02] active:scale-[0.98]"
-                              >
+                              <button onClick={handleSendRequest} className="px-6 py-2.5 bg-[#1D9BF0] hover:bg-[#1A8CD8] text-white font-bold rounded-full transition-all cursor-pointer text-xs shrink-0 shadow-sm hover:scale-[1.02] active:scale-[0.98]">
                                 {t.sendRequest}
                               </button>
                             </div>
@@ -1353,19 +1289,14 @@
                                 <p className="text-xs text-[#536471]">{t.verifyingText}</p>
                               </div>
                             </div>
-                            
                             <div className="w-64 h-1.5 bg-[#EFF3F4] rounded-full overflow-hidden mx-auto">
-                              <div 
-                                className="h-full bg-[#1D9BF0] transition-all duration-150"
-                                style={{ width: `${analyzingProgress}%` }}
-                              ></div>
+                              <div className="h-full bg-[#1D9BF0] transition-all duration-150" style={{ width: `${analyzingProgress}%` }}></div>
                             </div>
                           </div>
                         )}
 
                         {stage >= 4 && (
                           <div className="space-y-6 py-2 animate-fade-in">
-                            
                             <div className="max-w-2xl mx-auto shadow-sm rounded-2xl overflow-hidden border border-[#EFF3F4]">
                               <div className={`p-4 text-white bg-gradient-to-r ${assignedAgent.gradient} flex items-center gap-4`}>
                                 <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center font-black text-2xl border-2 border-white/30 shrink-0">
@@ -1387,32 +1318,17 @@
 
                             {stage === 4 && (
                               <div className="space-y-3 pt-2 animate-fade-in">
-                                <p className="text-center font-bold text-[#0F1419] text-base">
-                                  {t.q3Text}
-                                </p>
+                                <p className="text-center font-bold text-[#0F1419] text-base">{t.q3Text}</p>
                                 <div className="space-y-2">
                                   <div className="grid grid-cols-7 gap-2 max-w-md mx-auto">
                                     {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-                                      <button
-                                        key={num}
-                                        onClick={() => {
-                                          const nextStage = 5;
-                                          setStage(nextStage);
-                                          saveCurrentPostState({ agentTrust: num }, nextStage);
-                                        }}
-                                        className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${
-                                          ratings.agentTrust === num
-                                            ? 'bg-[#0f1419] text-white border-[#0f1419]'
-                                            : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'
-                                        }`}
-                                      >
+                                      <button key={num} onClick={() => { setStage(5); saveCurrentPostState({ aiCredibility: num }, 5); }} className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${ratings.aiCredibility === num ? 'bg-[#0f1419] text-white border-[#0f1419]' : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'}`}>
                                         {num}
                                       </button>
                                     ))}
                                   </div>
                                   <div className="flex justify-between max-w-md mx-auto text-[11px] text-[#536471] px-2 font-semibold">
-                                    <span>{t.q3Anchors[0]}</span>
-                                    <span>{t.q3Anchors[1]}</span>
+                                    <span>{t.q3Anchors[0]}</span><span>{t.q3Anchors[1]}</span>
                                   </div>
                                 </div>
                               </div>
@@ -1420,32 +1336,17 @@
 
                             {stage === 5 && (
                               <div className="space-y-3 pt-2 animate-fade-in">
-                                <p className="text-center font-bold text-[#0F1419] text-base">
-                                  {t.q4Text}
-                                </p>
+                                <p className="text-center font-bold text-[#0F1419] text-base">{t.q4Text}</p>
                                 <div className="space-y-2">
                                   <div className="grid grid-cols-7 gap-2 max-w-md mx-auto">
                                     {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-                                      <button
-                                        key={num}
-                                        onClick={() => {
-                                          const nextStage = 6;
-                                          setStage(nextStage);
-                                          saveCurrentPostState({ updatedCredibility: num }, nextStage);
-                                        }}
-                                        className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${
-                                          ratings.updatedCredibility === num
-                                            ? 'bg-[#0f1419] text-white border-[#0f1419]'
-                                            : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'
-                                        }`}
-                                      >
+                                      <button key={num} onClick={() => { setStage(6); saveCurrentPostState({ updatedAccuracy: num }, 6); }} className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${ratings.updatedAccuracy === num ? 'bg-[#0f1419] text-white border-[#0f1419]' : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'}`}>
                                         {num}
                                       </button>
                                     ))}
                                   </div>
                                   <div className="flex justify-between max-w-md mx-auto text-[11px] text-[#536471] px-2 font-semibold">
-                                    <span>{t.q4Anchors[0]}</span>
-                                    <span>{t.q4Anchors[1]}</span>
+                                    <span>{t.q4Anchors[0]}</span><span>{t.q4Anchors[1]}</span>
                                   </div>
                                 </div>
                               </div>
@@ -1453,32 +1354,17 @@
 
                             {stage === 6 && (
                               <div className="space-y-3 pt-2 animate-fade-in">
-                                <p className="text-center font-bold text-[#0F1419] text-base">
-                                  {t.q5Text}
-                                </p>
+                                <p className="text-center font-bold text-[#0F1419] text-base">{t.q5Text}</p>
                                 <div className="space-y-2">
                                   <div className="grid grid-cols-7 gap-2 max-w-md mx-auto">
                                     {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-                                      <button
-                                        key={num}
-                                        onClick={() => {
-                                          const nextStage = 6; // Stay on stage 6, this is the last step per post
-                                          setRatings(prev => ({ ...prev, updatedConfidence: num }));
-                                          saveCurrentPostState({ updatedConfidence: num }, nextStage);
-                                        }}
-                                        className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${
-                                          ratings.updatedConfidence === num
-                                            ? 'bg-[#0f1419] text-white border-[#0f1419]'
-                                            : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'
-                                        }`}
-                                      >
+                                      <button key={num} onClick={() => { setStage(6); setRatings(prev => ({ ...prev, updatedConfidence: num })); saveCurrentPostState({ updatedConfidence: num }, 6); }} className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${ratings.updatedConfidence === num ? 'bg-[#0f1419] text-white border-[#0f1419]' : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'}`}>
                                         {num}
                                       </button>
                                     ))}
                                   </div>
                                   <div className="flex justify-between max-w-md mx-auto text-[11px] text-[#536471] px-2 font-semibold">
-                                    <span>{t.q5Anchors[0]}</span>
-                                    <span>{t.q5Anchors[1]}</span>
+                                    <span>{t.q5Anchors[0]}</span><span>{t.q5Anchors[1]}</span>
                                   </div>
                                 </div>
                               </div>
@@ -1490,23 +1376,11 @@
                       </div>
 
                       <div className="flex justify-between items-center pt-6 border-t border-[#EFF3F4] shrink-0">
-                        <button
-                          onClick={handleMovePrev}
-                          disabled={currentPostIdx === 0 && stage === 0}
-                          className="flex items-center gap-1 px-4 py-2 rounded-full text-xs font-bold border border-[#EFF3F4] text-[#536471] hover:text-[#0F1419] hover:bg-[#F7F9F9] transition-all disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
-                        >
-                          <IconChevronLeft className="w-4 h-4" />
-                          {stage === 0 ? t.previousPost : t.back}
+                        <button onClick={handleMovePrev} disabled={currentPostIdx === 0 && stage === 0} className="flex items-center gap-1 px-4 py-2 rounded-full text-xs font-bold border border-[#EFF3F4] text-[#536471] hover:text-[#0F1419] hover:bg-[#F7F9F9] transition-all disabled:opacity-30 disabled:pointer-events-none cursor-pointer">
+                          <IconChevronLeft className="w-4 h-4" />{stage === 0 ? t.previousPost : t.back}
                         </button>
-
-                        <button
-                          onClick={handleMoveNext}
-                          disabled={!isMoveUnlocked()}
-                          className="flex items-center gap-1 px-5 py-2.5 rounded-full text-xs font-bold bg-[#1D9BF0] hover:bg-[#1A8CD8] text-white transition-all disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer shadow-sm"
-                          title={!isMoveUnlocked() ? "Please select a response before proceeding" : ""}
-                        >
-                          {stage === 6 && currentPostIdx === shuffledPosts.length - 1 ? t.finishStudy : stage === 6 ? t.nextPost : t.next}
-                          <IconChevronRight className="w-4 h-4" />
+                        <button onClick={handleMoveNext} disabled={!isMoveUnlocked()} className="flex items-center gap-1 px-5 py-2.5 rounded-full text-xs font-bold bg-[#1D9BF0] hover:bg-[#1A8CD8] text-white transition-all disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer shadow-sm">
+                          {stage === 6 && currentPostIdx === shuffledPosts.length - 1 ? t.finishStudy : stage === 6 ? t.nextPost : t.next}<IconChevronRight className="w-4 h-4" />
                         </button>
                       </div>
                       
@@ -1517,9 +1391,7 @@
                     <div className="p-6 md:p-12 space-y-8 flex-1 flex flex-col justify-start animate-fade-in overflow-y-auto">
                       <div className="max-w-2xl mx-auto text-center space-y-3">
                         <h2 className="text-xl font-black text-[#0F1419]">{t.postSurveyTitle}</h2>
-                        <p className="text-xs text-[#536471] italic leading-relaxed" style={{ textWrap: 'pretty' }}>
-                          {t.surveyHeading}
-                        </p>
+                        <p className="text-xs text-[#536471] italic leading-relaxed" style={{ textWrap: 'pretty' }}>{t.surveyHeading}</p>
                       </div>
 
                       <div className="max-w-xl w-full mx-auto space-y-8">
@@ -1529,56 +1401,30 @@
                           <h3 className="font-bold text-[#1D9BF0] text-sm border-b border-[#EFF3F4] pb-2">{t.sectionExpertise}</h3>
                           
                           <div className="space-y-3 bg-[#F7F9F9] p-5 rounded-2xl border border-[#EFF3F4]">
-                            <p className="font-bold text-sm text-[#0F1419]">{t.postSurveyQ1}</p>
-                            <div className="grid grid-cols-7 gap-1.5">
-                              {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-                                <button
-                                  key={num}
-                                  onClick={() => setSurveyQ1(num)}
-                                  className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${
-                                    surveyQ1 === num ? 'bg-[#0f1419] text-white border-[#0f1419]' : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'
-                                  }`}
-                                >{num}</button>
-                              ))}
-                            </div>
-                            <div className="flex justify-between text-[11px] text-[#536471] font-semibold px-2">
-                              <span>{t.postSurveyQ1Anchors[0]}</span><span>{t.postSurveyQ1Anchors[1]}</span>
-                            </div>
+                            <p className="font-bold text-sm text-[#0F1419]">{t.sq1_title}</p>
+                            {renderSubQuestion(t.lbl_knowledgeable, t.anchors_knowledgeable, surveyQ1a, setSurveyQ1a)}
+                            {renderSubQuestion(t.lbl_expert, t.anchors_expert, surveyQ1b, setSurveyQ1b)}
+                            {renderSubQuestion(t.lbl_experienced, t.anchors_experienced, surveyQ1c, setSurveyQ1c)}
                           </div>
 
                           <div className="space-y-3 bg-[#F7F9F9] p-5 rounded-2xl border border-[#EFF3F4]">
-                            <p className="font-bold text-sm text-[#0F1419]">{t.postSurveyQ2}</p>
-                            <div className="grid grid-cols-7 gap-1.5">
-                              {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-                                <button
-                                  key={num}
-                                  onClick={() => setSurveyQ2(num)}
-                                  className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${
-                                    surveyQ2 === num ? 'bg-[#0f1419] text-white border-[#0f1419]' : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'
-                                  }`}
-                                >{num}</button>
-                              ))}
-                            </div>
-                            <div className="flex justify-between text-[11px] text-[#536471] font-semibold px-2">
-                              <span>{t.postSurveyQ2Anchors[0]}</span><span>{t.postSurveyQ2Anchors[1]}</span>
-                            </div>
+                            <p className="font-bold text-sm text-[#0F1419]">{t.sq2_title}</p>
+                            {renderSubQuestion(t.lbl_knowledgeable, t.anchors_knowledgeable, surveyQ2a, setSurveyQ2a)}
+                            {renderSubQuestion(t.lbl_expert, t.anchors_expert, surveyQ2b, setSurveyQ2b)}
+                            {renderSubQuestion(t.lbl_experienced, t.anchors_experienced, surveyQ2c, setSurveyQ2c)}
                           </div>
 
                           <div className="space-y-3 bg-[#F7F9F9] p-5 rounded-2xl border border-[#EFF3F4]">
-                            <p className="font-bold text-sm text-[#0F1419]">{t.postSurveyQ3}</p>
-                            <div className="grid grid-cols-7 gap-1.5">
+                            <p className="font-bold text-sm text-[#0F1419]">{t.sq3_text}</p>
+                            <div className="grid grid-cols-7 gap-1.5 max-w-lg mx-auto">
                               {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-                                <button
-                                  key={num}
-                                  onClick={() => setSurveyQ3(num)}
-                                  className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${
-                                    surveyQ3 === num ? 'bg-[#0f1419] text-white border-[#0f1419]' : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'
-                                  }`}
-                                >{num}</button>
+                                <button key={num} onClick={() => setSurveyQ3(num)} className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${surveyQ3 === num ? 'bg-[#0f1419] text-white border-[#0f1419]' : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'}`}>
+                                  {num}
+                                </button>
                               ))}
                             </div>
-                            <div className="flex justify-between text-[11px] text-[#536471] font-semibold px-2">
-                              <span>{t.postSurveyQ3Anchors[0]}</span><span>{t.postSurveyQ3Anchors[1]}</span>
+                            <div className="flex justify-between text-[11px] text-[#536471] font-semibold px-2 max-w-lg mx-auto">
+                              <span>{t.sq3_anchors[0]}</span><span>{t.sq3_anchors[1]}</span>
                             </div>
                           </div>
                         </div>
@@ -1588,38 +1434,30 @@
                           <h3 className="font-bold text-[#1D9BF0] text-sm border-b border-[#EFF3F4] pb-2">{t.sectionCompetence}</h3>
                           
                           <div className="space-y-3 bg-[#F7F9F9] p-5 rounded-2xl border border-[#EFF3F4]">
-                            <p className="font-bold text-sm text-[#0F1419]">{t.postSurveyQ4}</p>
-                            <div className="grid grid-cols-7 gap-1.5">
+                            <p className="font-bold text-sm text-[#0F1419]">{t.sq4_text}</p>
+                            <div className="grid grid-cols-7 gap-1.5 max-w-lg mx-auto">
                               {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-                                <button
-                                  key={num}
-                                  onClick={() => setSurveyQ4(num)}
-                                  className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${
-                                    surveyQ4 === num ? 'bg-[#0f1419] text-white border-[#0f1419]' : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'
-                                  }`}
-                                >{num}</button>
+                                <button key={num} onClick={() => setSurveyQ4(num)} className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${surveyQ4 === num ? 'bg-[#0f1419] text-white border-[#0f1419]' : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'}`}>
+                                  {num}
+                                </button>
                               ))}
                             </div>
-                            <div className="flex justify-between text-[11px] text-[#536471] font-semibold px-2">
-                              <span>{t.postSurveyQ4Anchors[0]}</span><span>{t.postSurveyQ4Anchors[1]}</span>
+                            <div className="flex justify-between text-[11px] text-[#536471] font-semibold px-2 max-w-lg mx-auto">
+                              <span>{t.sq4_anchors[0]}</span><span>{t.sq4_anchors[1]}</span>
                             </div>
                           </div>
 
                           <div className="space-y-3 bg-[#F7F9F9] p-5 rounded-2xl border border-[#EFF3F4]">
-                            <p className="font-bold text-sm text-[#0F1419]">{t.postSurveyQ5}</p>
-                            <div className="grid grid-cols-7 gap-1.5">
+                            <p className="font-bold text-sm text-[#0F1419]">{t.sq5_text}</p>
+                            <div className="grid grid-cols-7 gap-1.5 max-w-lg mx-auto">
                               {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-                                <button
-                                  key={num}
-                                  onClick={() => setSurveyQ5(num)}
-                                  className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${
-                                    surveyQ5 === num ? 'bg-[#0f1419] text-white border-[#0f1419]' : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'
-                                  }`}
-                                >{num}</button>
+                                <button key={num} onClick={() => setSurveyQ5(num)} className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${surveyQ5 === num ? 'bg-[#0f1419] text-white border-[#0f1419]' : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'}`}>
+                                  {num}
+                                </button>
                               ))}
                             </div>
-                            <div className="flex justify-between text-[11px] text-[#536471] font-semibold px-2">
-                              <span>{t.postSurveyQ5Anchors[0]}</span><span>{t.postSurveyQ5Anchors[1]}</span>
+                            <div className="flex justify-between text-[11px] text-[#536471] font-semibold px-2 max-w-lg mx-auto">
+                              <span>{t.sq5_anchors[0]}</span><span>{t.sq5_anchors[1]}</span>
                             </div>
                           </div>
                         </div>
@@ -1629,20 +1467,16 @@
                           <h3 className="font-bold text-[#1D9BF0] text-sm border-b border-[#EFF3F4] pb-2">{t.sectionEmotional}</h3>
                           
                           <div className="space-y-3 bg-[#F7F9F9] p-5 rounded-2xl border border-[#EFF3F4]">
-                            <p className="font-bold text-sm text-[#0F1419]">{t.postSurveyQ6}</p>
-                            <div className="grid grid-cols-7 gap-1.5">
+                            <p className="font-bold text-sm text-[#0F1419]">{t.sq6_text}</p>
+                            <div className="grid grid-cols-7 gap-1.5 max-w-lg mx-auto">
                               {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-                                <button
-                                  key={num}
-                                  onClick={() => setSurveyQ6(num)}
-                                  className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${
-                                    surveyQ6 === num ? 'bg-[#0f1419] text-white border-[#0f1419]' : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'
-                                  }`}
-                                >{num}</button>
+                                <button key={num} onClick={() => setSurveyQ6(num)} className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${surveyQ6 === num ? 'bg-[#0f1419] text-white border-[#0f1419]' : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'}`}>
+                                  {num}
+                                </button>
                               ))}
                             </div>
-                            <div className="flex justify-between text-[11px] text-[#536471] font-semibold px-2">
-                              <span>{t.postSurveyQ6Anchors[0]}</span><span>{t.postSurveyQ6Anchors[1]}</span>
+                            <div className="flex justify-between text-[11px] text-[#536471] font-semibold px-2 max-w-lg mx-auto">
+                              <span>{t.sq6_anchors[0]}</span><span>{t.sq6_anchors[1]}</span>
                             </div>
                           </div>
                         </div>
@@ -1652,20 +1486,16 @@
                           <h3 className="font-bold text-[#1D9BF0] text-sm border-b border-[#EFF3F4] pb-2">{t.sectionIntent}</h3>
                           
                           <div className="space-y-3 bg-[#F7F9F9] p-5 rounded-2xl border border-[#EFF3F4]">
-                            <p className="font-bold text-sm text-[#0F1419]">{t.postSurveyQ7}</p>
-                            <div className="grid grid-cols-7 gap-1.5">
+                            <p className="font-bold text-sm text-[#0F1419]">{t.sq7_text}</p>
+                            <div className="grid grid-cols-7 gap-1.5 max-w-lg mx-auto">
                               {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-                                <button
-                                  key={num}
-                                  onClick={() => setSurveyQ7(num)}
-                                  className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${
-                                    surveyQ7 === num ? 'bg-[#0f1419] text-white border-[#0f1419]' : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'
-                                  }`}
-                                >{num}</button>
+                                <button key={num} onClick={() => setSurveyQ7(num)} className={`h-11 rounded-full text-xs font-bold border transition-all cursor-pointer shadow-sm ${surveyQ7 === num ? 'bg-[#0f1419] text-white border-[#0f1419]' : 'bg-white text-[#0f1419] border-[#EFF3F4] hover:border-[#1D9BF0] hover:bg-[#1D9BF0]/5'}`}>
+                                  {num}
+                                </button>
                               ))}
                             </div>
-                            <div className="flex justify-between text-[11px] text-[#536471] font-semibold px-2">
-                              <span>{t.postSurveyQ7Anchors[0]}</span><span>{t.postSurveyQ7Anchors[1]}</span>
+                            <div className="flex justify-between text-[11px] text-[#536471] font-semibold px-2 max-w-lg mx-auto">
+                              <span>{t.sq7_anchors[0]}</span><span>{t.sq7_anchors[1]}</span>
                             </div>
                           </div>
                         </div>
@@ -1673,19 +1503,8 @@
                       </div>
 
                       <div className="flex justify-center pt-4 pb-12">
-                        <button
-                          onClick={handleSubmitSurvey}
-                          disabled={!isSurveyComplete() || isSubmitting}
-                          className="px-8 py-3.5 bg-[#1D9BF0] hover:bg-[#1A8CD8] disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold rounded-full text-xs shadow-sm flex items-center gap-2 transition-all cursor-pointer"
-                        >
-                          {isSubmitting ? (
-                            <IconLoader className="w-4 h-4 animate-spin" />
-                          ) : (
-                            <React.Fragment>
-                              {t.submitFinish}
-                              <IconChevronRight className="w-4 h-4" />
-                            </React.Fragment>
-                          )}
+                        <button onClick={handleSubmitSurvey} disabled={!isSurveyComplete() || isSubmitting} className="px-8 py-3.5 bg-[#1D9BF0] hover:bg-[#1A8CD8] disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold rounded-full text-xs shadow-sm flex items-center gap-2 transition-all cursor-pointer">
+                          {isSubmitting ? <IconLoader className="w-4 h-4 animate-spin" /> : <React.Fragment>{t.submitFinish}<IconChevronRight className="w-4 h-4" /></React.Fragment>}
                         </button>
                       </div>
                     </div>
@@ -1696,23 +1515,9 @@
                       <div className="w-16 h-16 bg-[#00BA7C]/10 text-[#00BA7C] rounded-full flex items-center justify-center mx-auto border border-[#00BA7C]/20">
                         <IconCheckCircle className="w-8 h-8" />
                       </div>
-                      
                       <div className="space-y-2">
-                        <h2 className="text-2.5xl font-extrabold text-[#0F1419] tracking-tight">
-                          {t.completedTitle}
-                        </h2>
-                        <p className="text-[#536471] text-xs leading-relaxed">
-                          {t.completedText}
-                        </p>
-                      </div>
-
-                      <div className="pt-4 flex justify-center gap-3">
-                        <button
-                          onClick={handleClearAllLogs}
-                          className="px-6 py-3 bg-[#0F1419] hover:bg-[#272C30] text-white font-bold rounded-full transition-colors cursor-pointer text-xs shadow animate-fade-in"
-                        >
-                          {t.restartSimulation}
-                        </button>
+                        <h2 className="text-2.5xl font-extrabold text-[#0F1419] tracking-tight">{t.completedTitle}</h2>
+                        <p className="text-[#536471] text-xs leading-relaxed">{t.completedText}</p>
                       </div>
                     </div>
                   )}
@@ -1723,25 +1528,13 @@
               {showInstructionsModal && (
                 <div className="fixed inset-0 bg-[#0F1419]/40 backdrop-blur-sm flex justify-center items-center z-50 animate-fade-in p-4">
                   <div className="bg-white rounded-2xl border border-[#EFF3F4] max-w-md w-full p-6 shadow-2xl relative space-y-4">
-                    <button
-                      onClick={() => setShowInstructionsModal(false)}
-                      className="absolute top-4 right-4 p-1.5 text-[#536471] hover:bg-[#F7F9F9] rounded-full transition-colors cursor-pointer"
-                    >
+                    <button onClick={() => setShowInstructionsModal(false)} className="absolute top-4 right-4 p-1.5 text-[#536471] hover:bg-[#F7F9F9] rounded-full transition-colors cursor-pointer">
                       <IconX className="w-4.5 h-4.5" />
                     </button>
                     <h3 className="text-lg font-black text-[#0F1419]">{t.modalInstructionTitle}</h3>
-                    
-                    <p className="text-sm text-[#536471] leading-relaxed" style={{ textWrap: 'pretty' }}>
-                      {t.welcomeText}
-                    </p>
-                    
+                    <p className="text-sm text-[#536471] leading-relaxed" style={{ textWrap: 'pretty' }}>{t.welcomeText}</p>
                     <div className="pt-2 flex justify-end">
-                      <button
-                        onClick={() => setShowInstructionsModal(false)}
-                        className="px-5 py-2 bg-[#0F1419] text-white text-xs font-bold rounded-full hover:bg-[#272C30]"
-                      >
-                        {t.modalGotIt}
-                      </button>
+                      <button onClick={() => setShowInstructionsModal(false)} className="px-5 py-2 bg-[#0F1419] text-white text-xs font-bold rounded-full hover:bg-[#272C30]">{t.modalGotIt}</button>
                     </div>
                   </div>
                 </div>
