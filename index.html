@@ -966,8 +966,8 @@
                 await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
                   method: 'POST',
                   headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+    'Content-Type': 'text/plain;charset=utf-8'
+},
                   },
                   body: JSON.stringify({
   submissionToken: crypto.randomUUID(),
