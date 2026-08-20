@@ -970,7 +970,7 @@
                     'Content-Type': 'application/json'
                   },
                   body: JSON.stringify({
-  submissionToken: "SUB_" + Date.now(),
+  submissionToken: crypto.randomUUID(),
   source: "main_experiment",
   data: currentSessionData
 })
