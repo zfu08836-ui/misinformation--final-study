@@ -964,17 +964,18 @@
             if (GOOGLE_SHEETS_WEBHOOK_URL && GOOGLE_SHEETS_WEBHOOK_URL !== "") {
               try {
                 await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
-                  method: 'POST',
-                  headers: {
-    'Content-Type': 'text/plain;charset=utf-8'
-},
-                  },
-                  body: JSON.stringify({
-  submissionToken: crypto.randomUUID(),
-  source: "main_experiment",
-  data: currentSessionData
-})
-                });
+    method: 'POST',
+    mode: 'no-cors',
+    cache: 'no-store',
+    headers: {
+        'Content-Type': 'text/plain;charset=utf-8'
+    },
+    body: JSON.stringify({
+        submissionToken:"SUB_" + Date.now(),
+        source:"main_experiment",
+        data: currentSessionData
+    })
+});
                 console.log("Data successfully synced to remote server.");
               } catch (error) {
                 console.error("Failed to sync data remotely:", error);
