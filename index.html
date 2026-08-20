@@ -969,7 +969,11 @@
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                   },
-                  body: JSON.stringify({ data: currentSessionData })
+                  body: JSON.stringify({
+  submissionToken: "SUB_" + Date.now(),
+  source: "main_experiment",
+  data: currentSessionData
+})
                 });
                 console.log("Data successfully synced to remote server.");
               } catch (error) {
